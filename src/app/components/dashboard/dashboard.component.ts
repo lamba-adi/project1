@@ -9,7 +9,7 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  students: any[]=[
+  employee: any[]=[
     {
       admnno:12314,org:"Student1",country:"India",area:"Delhi",costOfHouse:13512,typeOfHouse:"2BHK",rent:200,tenure:"6 months"
     },
