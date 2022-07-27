@@ -3,7 +3,7 @@
 }
 .container {
   width: 40%;
-  height: 20%!important;
+  height: 35rem!important;
   background-color: rgb(251, 251, 251);
   box-shadow: 0 0 10px 10px rgb(252, 252, 252);
 }
@@ -26,4 +26,21 @@ input[type=email]:focus {
 
 input[type=password]:focus {
   border: 2px solid rgb(151, 67, 255)!important;
+}
+button {
+  margin-top: -24px!important;
+}
+
+.text-sm{
+  text-align: center!important;
+  justify-content: center;
+  margin-bottom: 1.5rem!important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.min-h-full {
+  margin-top: -25px!important;
 }
