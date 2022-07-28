@@ -1,13 +1,13 @@
 .remember{
   margin-top: -8px!important;
 }
-/* .container {
+
+.min-h-full {
   width: 35%;
-  height: 20rem!important;
-  background-color: rgb(251, 251, 251);
-  box-shadow: 0 0 10px 10px rgb(252, 252, 252);
+
 }
-*/
+
+
 input[type=text] {
   width: 100%;
   padding: 12px 20px;
@@ -21,10 +21,9 @@ input[type=text] {
 input[type=text]:focus,input[type=email]:focus ,input[type=password]:focus  {
   border: 2px solid rgb(151, 67, 255)!important;
 }
-
-/* button {
+button {
   margin-top: -24px!important;
-} */
+}
 
 .text-sm{
   text-align: center!important;
@@ -40,9 +39,10 @@ a {
   margin-top: -25px!important;
 } */
 
+
 .required-valid {
   color: red;
-  margin-top: -10px;
+  margin-top: -20px;
   margin-left: 10px;
   opacity: 1;
   font-size: 14px;
