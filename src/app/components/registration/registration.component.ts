@@ -11,9 +11,9 @@ export class RegistrationComponent implements OnInit {
 
   registerForm = new FormGroup({
     firstName : new FormControl('', [Validators.required]),
-    lastName: new FormControl(''),
-    email : new FormControl(''),
-    password : new FormControl(''),
+    lastName: new FormControl('',),
+    email : new FormControl('',[Validators.required, Validators.email]),
+    password : new FormControl('',[Validators.required]),
     confirmPassword  : new FormControl('')
   })
   get f(){
