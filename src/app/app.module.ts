@@ -8,7 +8,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminLogInComponent } from './components/admin-log-in/admin-log-in.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { UserSignUpComponent } from './components/user-sign-up/user-sign-up.component';
+import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { UserSignUpComponent } from './components/user-sign-up/user-sign-up.comp
     AdminLogInComponent,
     DashboardComponent,
     RegistrationComponent,
-    UserSignUpComponent
+    UserLogInComponent,
   ],
   imports: [
     BrowserModule,
