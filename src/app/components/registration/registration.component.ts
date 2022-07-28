@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   get f(){
     return this.registerForm.controls;
   }
-  onSubmitForm() {
+  onSubmitRegisterForm() {
     // TODO: Use EventEmitter with form value
     console.log(this.registerForm.value);
   }
