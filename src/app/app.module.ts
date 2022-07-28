@@ -9,6 +9,8 @@ import { AdminLogInComponent } from './components/admin-log-in/admin-log-in.comp
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { UserLogInComponent } from './components/user-log-in/user-log-in.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
