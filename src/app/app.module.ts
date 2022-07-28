@@ -9,6 +9,7 @@ import { AdminLogInComponent } from './components/admin-log-in/admin-log-in.comp
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MainwindowComponent } from './components/mainwindow/mainwindow.component';
 
 
@@ -21,11 +22,13 @@ import { MainwindowComponent } from './components/mainwindow/mainwindow.componen
     DashboardComponent,
     RegistrationComponent,
     UserLogInComponent,
-    MainwindowComponent,
+    MainwindowComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

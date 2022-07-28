@@ -38,3 +38,11 @@ a {
 .min-h-full {
   margin-top: -25px!important;
 }
+
+.required-valid {
+  color: red;
+  margin-top: -7px;
+  margin-left: 10px;
+  opacity: 1;
+  font-size: 14px;
+}
