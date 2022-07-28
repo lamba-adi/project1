@@ -1,55 +1,57 @@
-<div class="overflow-x-auto relative w-fit shadow-md sm:rounded-lg flex pl-4 pt-24 pb-4 z-0 justify-center  right">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="py-3 px-6">
-                    Employee ID
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Organisation
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Location
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Type of House
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Cost of House
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Rent/Tenure
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let stu of employee">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{stu.admnno}}
-                </th>
-                <td class="py-4 px-6">
-                    {{stu.org}}
-                </td>
-                <td class="py-4 px-6">
-                    {{stu.area}},{{stu.country}}
-                </td>
-                <td class="py-4 px-6">
-                    {{stu.typeOfHouse}}
-                </td>
-                <td class="py-4 px-6">
-                    {{stu.costOfHouse}}
-                </td>
-                <td class="py-4 px-6">
-                    ${{stu.rent}}/{{stu.tenure}}
-                </td>
-                <td class="py-4 px-6">
-                    <button class="btn bg-blue-500 ">Approve</button>
-                    <button class="btn bg-red-500">Reject</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="flex pl-4 pt-24 pb-4 z-0 justify-center ">
+    <div class="overflow-x-auto relative w-fit shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6">
+                        Employee ID
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Organisation
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Location
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Type of House
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Cost of House
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Rent/Tenure
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let stu of employee">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{stu.admnno}}
+                    </th>
+                    <td class="py-4 px-6">
+                        {{stu.org}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{stu.area}},{{stu.country}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{stu.typeOfHouse}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{stu.costOfHouse}}
+                    </td>
+                    <td class="py-4 px-6">
+                        ${{stu.rent}}/{{stu.tenure}}
+                    </td>
+                    <td class="py-4 px-6">
+                        <button class="btn bg-blue-500 ">Approve</button>
+                        <button class="btn bg-red-500">Reject</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
