@@ -11,8 +11,8 @@ import { MainwindowComponent } from './components/mainwindow/mainwindow.componen
 const routes: Routes = [
   {path: '' , component:MainwindowComponent},
   {path: 'DashBoard' , component:DashboardComponent},
-  {path: 'LogIn-Admin' , component:UserLogInComponent},
-  {path: 'LogIn', component:AdminLogInComponent},
+  {path: 'LogIn' , component:UserLogInComponent},
+  {path: 'LogIn-Admin', component:AdminLogInComponent},
   {path: 'Register', component:RegistrationComponent},
 
 ];
