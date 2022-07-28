@@ -13,8 +13,8 @@ export class RegistrationComponent implements OnInit {
     firstName : new FormControl('', [Validators.required]),
     lastName: new FormControl('',),
     email : new FormControl('',[Validators.required, Validators.email]),
-    password : new FormControl('',[Validators.required,Validators.minLength(6)]),
-    confirmPassword  : new FormControl('')
+    password : new FormControl('',[Validators.required]),
+    confirmPassword  : new FormControl('',[Validators.required])
   })
   get f(){
     return this.registerForm.controls;
