@@ -2,7 +2,10 @@
  .remember{
     margin-top: -8px!important;
   }
+  .min-h-full {
+    width: 25rem;
 
+  }
 
   input[type=text] {
      width: 150%;

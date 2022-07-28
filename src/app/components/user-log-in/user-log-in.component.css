@@ -3,6 +3,11 @@
    margin-top: -8px!important;
  }
 
+ .min-h-full {
+  width: 25rem;
+
+}
+
  input[type=text] {
    width: 100%;
    padding: 12px 20px;
