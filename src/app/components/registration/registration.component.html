@@ -7,7 +7,7 @@
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Register Here!</h2>
 
       </div>
-      <form class="mt-8 space-y-8"  method="POST" [formGroup]="registerForm" (ngSubmit)="onSubmitForm()" >
+      <form class="mt-8 space-y-8"  method="POST" [formGroup]="registerForm" (ngSubmit)="onSubmitRegisterForm()" >
 
         <div class="rounded-md  space-y-5">
           <div>
@@ -38,7 +38,7 @@
             <label for="password" class="sr-only">Password</label>
             <input id="password" name="password"  type="password" formControlName = "password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
             <div *ngIf="f['password'].touched && f['password'].invalid">
-              <div><span class="required-valid" class="required-valid">Password is required.</span></div>
+              <div><span class="required-valid" class="required-valid">Enter Valid Input !</span></div>
 
           </div>
           </div>

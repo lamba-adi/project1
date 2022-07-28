@@ -3,7 +3,7 @@
 }
 
 .min-h-full {
-  width: 35%;
+  width: 25rem;
 
 }
 
@@ -41,8 +41,8 @@ a {
 
 
 .required-valid {
-  color: red;
-  margin-top: -20px;
+  color: rgb(213, 96, 96);
+  margin-top: -20px!important;
   margin-left: 10px;
   opacity: 1;
   font-size: 14px;
