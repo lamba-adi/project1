@@ -10,7 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MainwindowComponent } from './components/mainwindow/mainwindow.component';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     RegistrationComponent,
     UserLogInComponent,
+    MainwindowComponent
   ],
   imports: [
     BrowserModule,
