@@ -11,6 +11,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainwindowComponent } from './components/mainwindow/mainwindow.component';
+import { DataFormComponent } from './components/data-form/data-form.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MainwindowComponent } from './components/mainwindow/mainwindow.componen
     DashboardComponent,
     RegistrationComponent,
     UserLogInComponent,
-    MainwindowComponent
+    MainwindowComponent,
+    DataFormComponent
   ],
   imports: [
     BrowserModule,
