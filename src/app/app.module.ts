@@ -11,6 +11,12 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MainwindowComponent } from './components/mainwindow/mainwindow.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SimpleNotificationsModule } from 'angular2-notifications'
+// import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -22,15 +28,28 @@ import { MainwindowComponent } from './components/mainwindow/mainwindow.componen
     DashboardComponent,
     RegistrationComponent,
     UserLogInComponent,
-    MainwindowComponent
+    MainwindowComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
+    // ToastrModule.forRoot()
+
+
+    // ToasterModule.forRoot()
+    // ToastrModule.forRoot({
+    //   timeOut: 15000, // 15 seconds
+    //   closeButton: true,
+    //   progressBar: true,
+    // }),
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
