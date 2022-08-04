@@ -13,40 +13,62 @@
 
         <div class="rounded-md  space-y-5">
           <div>
-            <label for="password" class="sr-only">First Name</label>
-            <input  id="password" name="password" formControlName = "firstName" type="text" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="First Name">
+            <label for="firstName" class="sr-only">First Name</label>
+            <input  id="password" name="password" formControlName = "firstName" type="text" autocomplete="current-password"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="First Name">
 
-              <div *ngIf="f['firstName'].touched && f['firstName'].invalid">
-                <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']"><span class="required-valid">Name is required !</span></div>
-
+              <div class="text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
+               First Name is required !
               </div>
+              <div class="text-danger" *ngIf="FirstName.errors?.['minLength'] && (FirstName.touched || FirstName.dirty)">
+                First Name too Short !
+               </div>
+               <div class="text-danger" *ngIf="FirstName.errors?.['pattern'] && (FirstName.touched || FirstName.dirty)">
+                First Name Should start with Alphabet !
+               </div>
 
           </div>
           <div>
-            <label for="password" class="sr-only">Last Name</label>
-            <input id="password" name="password" type="text" formControlName = "lastName" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Last Name">
-
+            <label for="lastName" class="sr-only">Last Name</label>
+            <input id="lastName" name="password" type="text" formControlName = "lastName" autocomplete="current-password"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Last Name">
+            <div class="text-danger" *ngIf="LastName.errors?.['required']
+            && (LastName.touched || LastName.dirty)">
+             Last Name is required !
+            </div>
+            <div class="text-danger" *ngIf="LastName.errors?.['minLength'] && (LastName.touched || LastName.dirty)">
+              Last Name too Short !
+             </div>
+             <div class="text-danger" *ngIf="LastName.errors?.['pattern'] && (LastName.touched || LastName.dirty)">
+              Last Name Should start with Alphabet !
+             </div>
           </div>
           <div>
             <label for="email-address" class="sr-only">Email address</label>
             <input id="email-address" name="email" type="email" formControlName = "email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email">
-            <div *ngIf="f['email'].touched && f['email'].invalid">
-              <div *ngIf="f['email'].errors && f['email'].errors['required']"><span class="required-valid">Email is required !</span></div>
+            <div class="text-danger" *ngIf="Email.errors?.['required']  && (Email.dirty || Email.touched)">
+              Email is required !
+             </div>
+             <div class="text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )">
+              Email is Invalid !
+              </div>
 
-          </div>
           </div>
 
           <div>
             <label for="password" class="sr-only">Password</label>
             <input id="password" name="password"  type="password" formControlName = "password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
-            <div *ngIf="f['password'].touched && f['password'].invalid">
-              <div><span class="required-valid" class="required-valid">Enter Valid Input</span></div>
-
-          </div>
+            <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
+              Password is required !
+             </div>
+             <div class="text-danger" *ngIf="PWD.errors?.['minLength'] || PWD.errors?.['maxLength'] && (PWD.dirty || PWD.touched )">
+              Password Should be at least 6 and  at the max 15 characters long!
+              </div>
           </div>
           <div>
             <label for="password" class="sr-only">Confirm Password</label>
             <input id="password" name="password" type="password" formControlName = "confirmPassword" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirm Password">
+            <div style="color: red;" class="text-danger repeat" [ngStyle]="{'display': repeatPass}">
+            Password Not Match !</div>
+
           </div>
           <br>
         </div>

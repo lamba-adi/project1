@@ -17,7 +17,7 @@ import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleNotificationsModule } from 'angular2-notifications'
 // import { ToastrModule } from 'ngx-toastr';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { DataFormComponent } from './components/data-form/data-form.component';
 import { HttpClient} from '@angular/common/http';

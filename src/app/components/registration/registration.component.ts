@@ -31,22 +31,36 @@ export class RegistrationComponent implements OnInit {
 
   }
   registerForm = new FormGroup({
-    firstName : new FormControl('', [Validators.required]),
-    lastName: new FormControl('',),
+    firstName : new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z].*")]),
+    lastName: new FormControl('',[Validators.required,Validators.minLength(2), Validators.pattern('[a-zA-Z].*')]),
     email : new FormControl('',[Validators.required, Validators.email]),
-    password : new FormControl('',[Validators.required]),
-    confirmPassword  : new FormControl('',[Validators.required])
+    password : new FormControl('',[Validators.required, Validators.minLength(6),Validators.maxLength(15)]),
+    confirmPassword  : new FormControl('')
   })
 
 
 
-  get f(){
-    return this.registerForm.controls;
+  get FirstName() : FormControl{
+    return this.registerForm.get("firstName") as FormControl;
+  }
+  get LastName() : FormControl{
+    return this.registerForm.get("lastName") as FormControl;
+  }
+  get Email() : FormControl{
+    return this.registerForm.get("email") as FormControl;
+  }
+
+  get PWD():FormControl {
+    return this.registerForm.get('password') as FormControl;
+  }
+
+  get CPWD():FormControl {
+    return this.registerForm.get('confirmPassword') as FormControl;
   }
   onSubmitRegisterForm() {
     // TODO: Use EventEmitter with form value
     if(this.PWD.value ==  this.CPWD.value){
-      console.log(this.registerForm.valid);
+      // console.log(this.registerForm.valid);
 
       this.authService.registerUser([
         this.registerForm.value.firstName,
@@ -58,8 +72,6 @@ export class RegistrationComponent implements OnInit {
         if(res == "Success") {
           // this.displayMsg = "Account Created Successfully!";
           this.onSuccess();
-
-
           console.log(res);
           // console.log(res)
 
@@ -78,21 +90,14 @@ export class RegistrationComponent implements OnInit {
     }
 
     else {
-      console.log(this.registerForm.invalid);
+      this.repeatPass = 'inline';
 
     }
 
   }
 
-  get PWD():FormControl {
-    return this.registerForm.get('password') as FormControl;
-  }
 
-  get CPWD():FormControl {
-    return this.registerForm.get('confirmPassword') as FormControl;
-  }
   // msg:string='welcome';
-  
   onSuccess(){
     this.service.success('Success',"Account Created Successfully!",{
       position:['top','left'],
