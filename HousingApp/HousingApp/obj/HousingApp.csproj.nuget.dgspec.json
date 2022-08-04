@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ayush-gupta\\source\\repos\\HousingApp\\HousingApp\\HousingApp.csproj": {}
+    "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\HousingApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ayush-gupta\\source\\repos\\HousingApp\\HousingApp\\HousingApp.csproj": {
+    "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\HousingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayush-gupta\\source\\repos\\HousingApp\\HousingApp\\HousingApp.csproj",
+        "projectUniqueName": "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\HousingApp.csproj",
         "projectName": "HousingApp",
-        "projectPath": "C:\\Users\\ayush-gupta\\source\\repos\\HousingApp\\HousingApp\\HousingApp.csproj",
-        "packagesPath": "C:\\Users\\ayush-gupta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayush-gupta\\source\\repos\\HousingApp\\HousingApp\\obj\\",
+        "projectPath": "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\HousingApp.csproj",
+        "packagesPath": "C:\\Users\\aditya-lamba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ayush-gupta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aditya-lamba\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.7, )"
@@ -60,9 +68,17 @@
               "target": "Package",
               "version": "[6.0.7, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.22.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.22.0, )"
             }
           },
           "imports": [
