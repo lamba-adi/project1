@@ -18,7 +18,7 @@ export class EmployeeService {
 
   userLogin(usercredentials:Login) {
 
-    return this._HttpClient.post("https://localhost:7033/api/Login/userLogin",{
+    return this._HttpClient.post("https://localhost:7038/api/Login/userLogin",{
       EmpEmail:usercredentials.EmpEmail,
       EmpPassword: usercredentials.EmpPassword  
     },
@@ -30,7 +30,7 @@ export class EmployeeService {
   
   adminLogin(usercredentials:Login) {
 
-    return this._HttpClient.post("https://localhost:7033/api/Login/adminLogin",{
+    return this._HttpClient.post("https://localhost:7038/api/Login/adminLogin",{
       EmpEmail:usercredentials.EmpEmail,
       EmpPassword: usercredentials.EmpPassword  
     },

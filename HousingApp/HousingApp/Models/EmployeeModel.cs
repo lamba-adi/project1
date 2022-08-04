@@ -1,6 +1,9 @@
-﻿namespace HousingApp.Models
+using System.ComponentModel.DataAnnotations.Schema;
+
+
+namespace HousingApp.Models
 {
-    public class User
+    public class EmployeeModel
     {
         public int Id { get; set; }
         public String firstName { get; set; }
@@ -9,5 +12,7 @@
         public String password { get; set; }
 
         public DateTime MemberSince { get; set; }
-    }
+
+  }
+
 }
