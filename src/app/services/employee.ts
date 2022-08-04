@@ -1,4 +1,4 @@
-export class employee{
+export class Login{
     constructor(email : string,pswd : string){
         this.EmpEmail=email;
         this.EmpPassword=pswd;

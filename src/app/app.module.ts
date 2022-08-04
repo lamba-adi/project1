@@ -20,6 +20,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications'
 
 
 import { DataFormComponent } from './components/data-form/data-form.component';
+import { HttpClient} from '@angular/common/http';
 
 
 
@@ -40,17 +41,8 @@ import { DataFormComponent } from './components/data-form/data-form.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
-    // ToastrModule.forRoot()
-
-
-    // ToasterModule.forRoot()
-    // ToastrModule.forRoot({
-    //   timeOut: 15000, // 15 seconds
-    //   closeButton: true,
-    //   progressBar: true,
-    // }),
+    BrowserAnimationsModule
 
   ],
   providers: [AuthService],

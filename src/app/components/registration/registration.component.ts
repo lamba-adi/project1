@@ -92,6 +92,7 @@ export class RegistrationComponent implements OnInit {
     return this.registerForm.get('confirmPassword') as FormControl;
   }
   // msg:string='welcome';
+  
   onSuccess(){
     this.service.success('Success',"Account Created Successfully!",{
       position:['top','left'],

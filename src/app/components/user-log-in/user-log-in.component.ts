@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { Login } from 'src/app/services/employee';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-log-in',
@@ -9,16 +13,39 @@ import {HttpClientModule} from '@angular/common/http'
 })
 export class UserLogInComponent implements OnInit {
 
+  usercred:Login=new Login('','');
+  constructor(private _EmployeeServices:EmployeeService, private _Router:Router) { }
+
   loginForm = new FormGroup ({
-    email : new FormControl(''),
-    password : new FormControl('')
+    email : new FormControl('',[Validators.required,Validators.email]),
+    password : new FormControl('',[Validators.required])
   })
 
 onSubmitLoginForm() {
-  console.log(this.loginForm.value);
+  this.usercred.EmpEmail=this.loginForm.controls['email'].value;
+  this.usercred.EmpPassword=this.loginForm.controls['password'].value;
+
+  this._EmployeeServices.userLogin(this.usercred).subscribe(
+    (response)=>{
+      if(response=="failure")
+        alert("invalid Email/Password")
+        
+      else{
+        this._EmployeeServices.setUserToken(response);
+        this._Router.navigate(['/']);
+      }
+        
+    },
+    (error)=>{
+      console.log(error)
+    }
+  )
 }
 
-  constructor() { }
+get f(){
+    return this.loginForm.controls;
+  }
+  
 
   ngOnInit(): void {
   }
