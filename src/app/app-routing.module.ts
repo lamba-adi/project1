@@ -7,6 +7,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
 import { MainwindowComponent } from './components/mainwindow/mainwindow.component';
+import { CompareComponent } from './components/compare/compare.component';
 
 const routes: Routes = [
   {path: '' , component:MainwindowComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'LogIn' , component:UserLogInComponent},
   {path: 'LogIn-Admin', component:AdminLogInComponent},
   {path: 'Register', component:RegistrationComponent},
+  {path: 'compare', component:CompareComponent}
 
 ];
 

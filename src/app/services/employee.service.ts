@@ -8,7 +8,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class EmployeeService {
-
+  
+  data:any;
 
   currentUser: BehaviorSubject<any> = new BehaviorSubject(null);
 
@@ -51,7 +52,7 @@ export class EmployeeService {
   loadCurrentUser(){
     const token = localStorage.getItem("user_access_token");
     const userInfo = token !=null? this._jwtHelperService.decodeToken(token):null;
-    const data = userInfo?{
+    this.data = userInfo?{
       id:userInfo.id,
       firstName:userInfo.firstname,
       lastName: userInfo.lastname,
@@ -61,6 +62,11 @@ export class EmployeeService {
   loadCurrentAdmin(){
     const token = localStorage.getItem("admin_access_token");
     const userInfo = token !=null? this._jwtHelperService.decodeToken(token):null;
+  }
+
+  removeUserToken(){
+    localStorage.removeItem("user_access_token");
+    localStorage.removeItem("admin_access_token");
   }
 
 }

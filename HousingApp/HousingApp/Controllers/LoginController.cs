@@ -25,7 +25,16 @@ namespace HousingApp.Controllers
       _config = config;
     }
 
-    public string DecryptPassword(string DecryptText)
+    private string Encrypt_Password(string password)
+    {
+      string pswstr = string.Empty;
+      byte[] psw_encode = new byte[password.Length];
+      psw_encode = System.Text.Encoding.UTF8.GetBytes(password);
+      pswstr = Convert.ToBase64String(psw_encode);
+      return pswstr;
+    }
+
+    /*public string DecryptPassword(string DecryptText)
     {
       byte[] SrctArray;
       byte[] DrctArray = Convert.FromBase64String(DecryptText);
@@ -59,8 +68,8 @@ namespace HousingApp.Controllers
       byte[] resArray = crptotrns.TransformFinalBlock(EnctArray, 0, EnctArray.Length);
       objt.Clear();
       return Convert.ToBase64String(resArray, 0, resArray.Length);
-    }
-    
+    }*/
+
 
     [HttpGet]
     public async Task<IEnumerable<EmployeeModel>> GetEmp()
@@ -72,7 +81,7 @@ namespace HousingApp.Controllers
     [HttpPost("userLogin")]
     public IActionResult userLogin(userLoginModel user)
     {
-      var useravailable = _empContext.empdata.Where(userdb => userdb.email == user.EmpEmail && userdb.password == EncryptPassword(user.EmpPassword)).FirstOrDefault();
+      var useravailable = _empContext.empdata.Where(userdb => userdb.email == user.EmpEmail && userdb.password == Encrypt_Password(user.EmpPassword)).FirstOrDefault();
       if (useravailable != null)
       {
         return Ok(new JWTService(_config).generateToken("userid", "fname", "lname", useravailable.email));

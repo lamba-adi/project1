@@ -21,6 +21,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { DataFormComponent } from './components/data-form/data-form.component';
 import { HttpClient} from '@angular/common/http';
+import { CompareComponent } from './components/compare/compare.component';
 
 
 
@@ -34,7 +35,8 @@ import { HttpClient} from '@angular/common/http';
     RegistrationComponent,
     UserLogInComponent,
     MainwindowComponent,
-    DataFormComponent
+    DataFormComponent,
+    CompareComponent
   ],
   imports: [
     BrowserModule,

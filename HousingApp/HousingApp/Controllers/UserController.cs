@@ -31,6 +31,7 @@ namespace HousingApplication.Controllers
             return pswstr;
         }
 
+    /*
     public string EncryptPassword(string Encryptval)
     {
       byte[] SrctArray;
@@ -47,7 +48,7 @@ namespace HousingApplication.Controllers
       byte[] resArray = crptotrns.TransformFinalBlock(EnctArray, 0, EnctArray.Length);
       objt.Clear();
       return Convert.ToBase64String(resArray, 0, resArray.Length);
-    }
+    }*/
     public UserController(IConfiguration config, HousingDbContext context)
         {
             _config = config;
@@ -64,7 +65,7 @@ namespace HousingApplication.Controllers
                 return Ok("AlreadyRegistered");
             }
             user.MemberSince = DateTime.Now;
-            user.password = EncryptPassword(user.password);
+            user.password = Encrypt_Password(user.password);
             _context.Entry(user).State = EntityState.Modified;
             _context.empdata.Add(user);
             _context.SaveChanges();
