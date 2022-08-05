@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {HttpClient, HttpEventType, HttpErrorResponse} from '@angular/common/http'
-// import { FileUploadService } from './file-upload.service';?
+// import { FileUploadService } from './file-upload.service';
+// import {FileUploadModule} from 'primeng/fileupload';
+import {HttpClientModule} from '@angular/common/http';
 @Component({
   selector: 'app-data-form',
   templateUrl: './data-form.component.html',
@@ -10,8 +12,9 @@ import {HttpClient, HttpEventType, HttpErrorResponse} from '@angular/common/http
 
 
 export class DataFormComponent implements OnInit {
-  progress : number = 0;
-  message : string = '';
+ public progress : number = 0;
+ public message : string = '';
+
   // files : File = null;
   files : any[] = []
   @Output() public onUploadFinished = new EventEmitter();
@@ -22,8 +25,8 @@ export class DataFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  uploadData = (files:any) =>{
-    if(files.length() === 0){
+  public uploadData = (files:any) =>{
+    if(files.length === 0){
       return;
     }
     let fileUpload = <File>files[0];
@@ -31,7 +34,7 @@ export class DataFormComponent implements OnInit {
     formData.append('file',fileUpload,fileUpload.name);
 
 
-    this.http.post('https://localhost:5001/api/upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://localhost:7038/api/Upload', formData, {reportProgress: true, observe: 'events'})
       .subscribe({
         next: (event:any) => {
         if (event.type === HttpEventType.UploadProgress)
@@ -44,5 +47,7 @@ export class DataFormComponent implements OnInit {
       error: (err: HttpErrorResponse) => console.log(err)
     });
   }
+
+
 
 }

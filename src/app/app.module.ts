@@ -22,6 +22,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { DataFormComponent } from './components/data-form/data-form.component';
 import { HttpClient} from '@angular/common/http';
 import { CompareComponent } from './components/compare/compare.component';
+// import {FileUploadModule} from 'primeng/fileupload';
+
 
 
 
@@ -44,7 +46,8 @@ import { CompareComponent } from './components/compare/compare.component';
     ReactiveFormsModule,
     HttpClientModule,
     SimpleNotificationsModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // FileUploadModule
 
   ],
   providers: [AuthService],
