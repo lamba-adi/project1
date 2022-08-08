@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { UserLogInComponent } from '../user-log-in/user-log-in.component';
 
 @Component({
   selector: 'app-nav',
@@ -17,15 +18,18 @@ export class NavComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._EmployeeService.loadCurrentAdmin();
-    this._EmployeeService.loadCurrentUser();
+    if(localStorage.getItem("admin_access_token")!=null)
+      this._EmployeeService.loadCurrentAdmin();
+    else
+      this._EmployeeService.loadCurrentUser();
     this.data=this._EmployeeService.data;
     console.log(this.data)
   }
 
   logout(){
     this._EmployeeService.removeUserToken();
-    this._Router.navigateByUrl("/LogIn")
+    this.data=null;
+    this._Router.navigate(["/"]);
   }
 
   viewdropdownmenu(){

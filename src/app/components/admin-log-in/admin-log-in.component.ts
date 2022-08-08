@@ -18,6 +18,8 @@ export class AdminLogInComponent implements OnInit {
   admincred:Login=new Login('','');
   constructor(private _EmployeeServices:EmployeeService, private _Router:Router) { }
 
+  data= this._EmployeeServices.data;
+
   adminForm = new FormGroup ({
     email : new FormControl('',[Validators.required,Validators.email]),
     password : new FormControl('',[Validators.required])
@@ -33,7 +35,8 @@ onSubmitLoginForm() {
       else
       {
         this._EmployeeServices.setAdminToken(response);
-        this._Router.navigate(['/']);
+        window.location.reload();
+        this._Router.navigate(['/main']);
       }
         
     },
@@ -50,6 +53,10 @@ get f(){
   }
 
   ngOnInit(): void {
+    this._EmployeeServices.loadCurrentAdmin();
+    this.data=this._EmployeeServices.data;
+    if(this.data!=null)
+    this._Router.navigate(['/main']);
   }
 
 }

@@ -16,6 +16,8 @@ export class UserLogInComponent implements OnInit {
   usercred:Login=new Login('','');
   constructor(private _EmployeeServices:EmployeeService, private _Router:Router) { }
 
+  data=this._EmployeeServices.data;
+
   loginForm = new FormGroup ({
     email : new FormControl('',[Validators.required,Validators.email]),
     password : new FormControl('',[Validators.required])
@@ -32,7 +34,8 @@ onSubmitLoginForm() {
         
       else{
         this._EmployeeServices.setUserToken(response);
-        this._Router.navigate(['/']);
+        window.location.reload();
+        this._Router.navigate(['/main']);
       }
         
     },
@@ -48,6 +51,10 @@ get f(){
   
 
   ngOnInit(): void {
+    this._EmployeeServices.loadCurrentUser();
+    this.data=this._EmployeeServices.data;
+    if(this.data!=null)
+      this._Router.navigate(['/main']);
   }
 
 }
