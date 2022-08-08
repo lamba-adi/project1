@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\HousingApp",
-    "\\HousingApp\\Controllers",
-    "\\HousingApp\\Models"
+    "\\HousingApp\\Controllers"
   ],
-  "SelectedNode": "\\HousingApp",
+  "SelectedNode": "\\HousingApp.sln",
   "PreviewInSolutionExplorer": false
 }

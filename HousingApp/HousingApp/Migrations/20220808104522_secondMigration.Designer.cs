@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HousingApp.Migrations
 {
     [DbContext(typeof(HousingDbContext))]
-    [Migration("20220804081005_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20220808104522_secondMigration")]
+    partial class secondMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,6 +143,40 @@ namespace HousingApp.Migrations
                     b.HasKey("entryID");
 
                     b.ToTable("Housing_Approved");
+                });
+
+            modelBuilder.Entity("HousingApp.Models.UploadDataModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("area")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("costOfHouse")
+                        .HasColumnType("int");
+
+                    b.Property<string>("country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rent")
+                        .HasColumnType("int");
+
+                    b.Property<int>("rentTure")
+                        .HasColumnType("int");
+
+                    b.Property<string>("sizeOfHouse")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("typeOfHouse")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Upload_DataModel");
                 });
 #pragma warning restore 612, 618
         }

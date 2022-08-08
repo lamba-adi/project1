@@ -18,5 +18,6 @@ namespace HousingApplication.Models
         public DbSet<housingApprovalModel> Housing_Approval { get; set; }
 
         public DbSet<housingApprovedModel> Housing_Approved { get; set; }
+        public DbSet<UploadDataModel> Upload_DataModel { get; set; }
   }
 }

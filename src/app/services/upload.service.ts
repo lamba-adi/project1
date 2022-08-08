@@ -11,7 +11,7 @@ export class UploadService {
   }
   baseUrl = "https://localhost:7038/api/"
   uploadform(upload : Array<String>) {
-  return this.http.post(this.baseUrl + "Upload/UploadData",{
+  return this.http.post(this.baseUrl + "UploadData/UploadData",{
    country:upload[0],
    area:upload[1],
    typeOfHouse:upload[2],
