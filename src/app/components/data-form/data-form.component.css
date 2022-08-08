@@ -1,1 +1,46 @@
+.cotainer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+
+
+}
+
+
+.formu {
+  justify-content: left;
+  margin-left: 5rem;
+
+
+}
+.upload {
+  /* float: right!important; */
+  justify-content: right!important;
+  /* margin-left: 20rem; */
+
+}
+
+.dataform {
+  width: 18rem;
+  margin: 2rem;
+}
+
+
+
+/* input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(244, 244, 244)!important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+} */
+/* input[type=text]:focus,input[type=email]:focus ,input[type=password]:focus  {
+  border: 2px solid rgb(151, 67, 255)!important;
+} */
+
+
+
 

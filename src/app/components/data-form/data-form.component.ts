@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import {HttpClient, HttpEventType, HttpErrorResponse} from '@angular/common/http'
+import {HttpClient, HttpEventType, HttpErrorResponse} from '@angular/common/http';
+import { UploadService } from 'src/app/services/upload.service';
+import { FormControl,FormGroup } from '@angular/forms';
 // import { FileUploadService } from './file-upload.service';
 // import {FileUploadModule} from 'primeng/fileupload';
 import {HttpClientModule} from '@angular/common/http';
@@ -20,7 +22,7 @@ export class DataFormComponent implements OnInit {
   @Output() public onUploadFinished = new EventEmitter();
 
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,private  _uploadService : UploadService) { }
 
   ngOnInit(): void {
   }
@@ -48,6 +50,40 @@ export class DataFormComponent implements OnInit {
     });
   }
 
+  HousingForm = new FormGroup({
+    // employeeId : new FormControl('', [Validators.required]),
+    country : new FormControl(''),
+    area : new FormControl(''),
+    typeOfHouse : new FormControl(''),
+    sizeOfHouse : new FormControl(''),
+    costOfHouse  : new FormControl(''),
+    rent  : new FormControl(''),
+    rentTenure  : new FormControl('')
+  });
 
+  onSubmitHousingForm() {
+    console.log(this.HousingForm.value)
+
+    this._uploadService.uploadform([
+      this.HousingForm.value.country,
+      this.HousingForm.value.area,
+      this.HousingForm.value.typeOfHouse,
+      this.HousingForm.value.sizeOfHouse,
+      this.HousingForm.value.costOfHouse,
+      this.HousingForm.value.rent,
+      this.HousingForm.value.rentTenure
+    ]).subscribe(res =>{
+      if(res == "Success") {
+        // this.displayMsg = "Account Created Successfully!";
+
+        console.log(res);
+        // console.log(res)
+
+
+      }
+    })
+
+
+  }
 
 }

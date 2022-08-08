@@ -1,4 +1,4 @@
-<p>data-form works!</p>
+ <!-- <p>data-form works!</p>
 <div class="row" style="margin-bottom:15px;">
   <div class="col-md-3">
     <input type="file" #file placeholder="Choose file" (change)="uploadData(file.files)" style="display:none;">
@@ -12,7 +12,7 @@
       {{message}}
     </span>
   </div>
-</div>
+</div>  -->
 
 <!-- <div class="row">
   <div class="offset-md-5 col-md-2">
@@ -20,52 +20,177 @@
   </div>
 </div> -->
 
-<!-- <div class="relative min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8  relative items-center"
-	>
-	<div class="absolute bg-black opacity-60 inset-0 z-0"></div>
-	<div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
-		<div class="text-center">
-			<h2 class="mt-2 text-3xl font-bold text-gray-900">
-				File Upload!
-			</h2>
-			<p class="mt-2 text-sm text-gray-400">Lorem ipsum is placeholder text.</p>
-		</div>
-        <form class="mt-4 space-y-2" action="#" method="POST">
-                    <div class="grid grid-cols-1 space-y-2">
-                        <label class="text-sm font-bold text-gray-500 tracking-wide">Title</label>
-                            <input class="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" type="" placeholder="mail@gmail.com">
-                    </div>
-                    <div class="grid grid-cols-1 space-y-2">
-                                    <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
-                        <div class="flex items-center justify-center w-full">
-                            <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
-                                <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
-                                    -<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
-                                    <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
-                                    <img class="has-mask h-36 object-center" src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image">
-                                    </div>
-                                    <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> files here <br /> or select a file from your computer</p>
-                                </div>
-                                <input type="file"  #file placeholder="Choose file" (change)="uploadData(file.files)" class="hidden">
-                            </label>
-                        </div>
-                    </div>
-                            <p class="text-sm text-gray-300">
-                                <span>File type: doc,pdf,types of images</span>
-                            </p>
-                    <div>
-                        <button (click) = "file.click()" type="submit" class="my-3 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
-                                    font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
-                        Upload
-                    </button>
-                    </div>
-        </form>
-	</div>
-</div>
-<style> -->
+
 
 
 
 <!-- style="background-image: url(https://images.unsplash.com/photo-1621243804936-775306a8f2e3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80); -->
+
+
+<div class="flex flex-row">
+  <div class="formu flex justify-left">
+    <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
+      <div class="max-w-full w-full space-y-8">
+        <div>
+          <!-- <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"> -->
+          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900"></h2>
+
+        </div>
+        <form class="mt-8 space-y-8 dataform" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
+
+          <div class="rounded-md  space-y-5">
+            <div class="">
+              <label  for="Country" >Country</label>
+              <input  id="password" name="password" formControlName = "country" type="text"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
+
+                <!-- <div class="text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
+                 First Name is required !
+                </div>
+                <div class="text-danger" *ngIf="FirstName.errors?.['minLength'] && (FirstName.touched || FirstName.dirty)">
+                  First Name too Short !
+                 </div>
+                 <div class="text-danger" *ngIf="FirstName.errors?.['pattern'] && (FirstName.touched || FirstName.dirty)">
+                  First Name Should start with Alphabet !
+                 </div> -->
+
+            </div>
+            <div>
+              <label for="Area" class="sr-only">Area</label>
+              <input id="area" name="text" type="text" formControlName = "area"   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Area">
+              <!-- <div class="text-danger" *ngIf="LastName.errors?.['required']
+              && (LastName.touched || LastName.dirty)">
+               Last Name is required !
+              </div> -->
+              <!-- <div class="text-danger" *ngIf="LastName.errors?.['minLength'] && (LastName.touched || LastName.dirty)">
+                Last Name too Short !
+               </div>
+               <div class="text-danger" *ngIf="LastName.errors?.['pattern'] && (LastName.touched || LastName.dirty)">
+                Last Name Should start with Alphabet !
+               </div> -->
+            </div>
+            <div>
+              <label for="typeofHouses" class="sr-only">House Type</label>
+              <input id="typeofhouses" name="email" type="text" formControlName = "typeOfHouse" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Type">
+              <!-- <div class="text-danger" *ngIf="Email.errors?.['required']  && (Email.dirty || Email.touched)">
+                Email is required !
+               </div>
+               <div class="text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )">
+                Email is Invalid !
+                </div> -->
+
+            </div>
+            <div>
+              <label for="sizeofhouses" class="sr-only">House Size</label>
+              <input id="housesize" name="housesize" type="text" formControlName = "sizeOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Size">
+              <!-- <div style="color: red;" class="text-danger repeat" [ngStyle]="{'display': repeatPass}">
+              Password Not Match !</div>
+
+
+            </div> -->
+            <br>
+          </div>
+            <div>
+              <label for="housecost" class="sr-only">House Cost</label>
+              <input id="housecost" name="housecost"  type="text" formControlName = "costOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Cost">
+              <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
+                Password is required !
+               </div>
+               <div class="text-danger" *ngIf="PWD.errors?.['minLength'] || PWD.errors?.['maxLength'] && (PWD.dirty || PWD.touched )">
+                Password Should be at least 6 and  at the max 15 characters long!
+                </div> -->
+            </div>
+            <div>
+              <label for="rent" class="sr-only">Rent</label>
+              <input id="rent" name="rent"  type="text" formControlName = "rent"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent">
+              <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
+                Password is required !
+               </div>
+               <div class="text-danger" *ngIf="PWD.errors?.['minLength'] || PWD.errors?.['maxLength'] && (PWD.dirty || PWD.touched )">
+                Password Should be at least 6 and  at the max 15 characters long!
+                </div> -->
+            </div>
+
+            <div>
+              <label for="rentoftenure" class="sr-only">Rent Tenure</label>
+              <input id="renttenure" name="renttenure"  type="text" formControlName = "rentTenure"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent tenure">
+              <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
+                Password is required !
+               </div>
+               <div class="text-danger" *ngIf="PWD.errors?.['minLength'] || PWD.errors?.['maxLength'] && (PWD.dirty || PWD.touched )">
+                Password Should be at least 6 and  at the max 15 characters long!
+                </div> -->
+            </div>
+
+
+          <div>
+            <button    type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                <!-- Heroicon name: solid/lock-closed -->
+                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <!-- <a routerLink="/LogIn"></a> -->
+              Submit
+            </button>
+
+
+
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h py-12 px-4 sm:px-6 lg:px-6  ">
+    <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
+      <div class="text-center">
+        <h2 class="mt-2 text-3xl font-bold text-gray-900">
+          File Upload!
+        </h2>
+        <p class="mt-2 text-sm text-gray-400">Lorem ipsum is placeholder text.</p>
+      </div>
+
+
+                      <div class="grid grid-cols-1 space-y-6">
+                                      <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
+                          <div class="flex items-center justify-center w-full">
+                              <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
+                                  <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
+                                      -<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                      </svg>
+                                      <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
+                                      <img class="has-mask h-36 object-center" src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image">
+                                      </div>
+                                      <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> files here <br /> or select a file from your computer</p>
+                                  </div>
+                                  <input type="file"  #file placeholder="Choose file" (change)="uploadData(file.files)" class="hidden">
+                              </label>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <span class="upload" *ngIf="progress > 0">
+                          {{progress}}%
+                        </span>
+                        <span class="upload" *ngIf="message">
+                          {{message}}
+                        </span>
+                              <p class="text-sm text-gray-300">
+                                  <span>File type: doc,pdf,types of images</span>
+                              </p>
+                      <div>
+                          <button  (click)="file.click()" type="button" class="my-3 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
+                                      font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                          Upload
+                      </button>
+                      </div>
+
+    </div>
+    </div>
+
+</div>
+
+
+

@@ -8,6 +8,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { UserLogInComponent } from './components/user-log-in/user-log-in.component';
 import { MainwindowComponent } from './components/mainwindow/mainwindow.component';
 import { CompareComponent } from './components/compare/compare.component';
+import { DataFormComponent } from './components/data-form/data-form.component';
+
 
 const routes: Routes = [
   {path: '' , component:MainwindowComponent},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'LogIn' , component:UserLogInComponent},
   {path: 'LogIn-Admin', component:AdminLogInComponent},
   {path: 'Register', component:RegistrationComponent},
-  {path: 'compare', component:CompareComponent}
+  {path: 'compare', component:CompareComponent},
+  {path: 'upload',component:DataFormComponent},
+
 
 ];
 
