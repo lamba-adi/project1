@@ -9,17 +9,17 @@ import { UserLogInComponent } from './components/user-log-in/user-log-in.compone
 import { MainwindowComponent } from './components/mainwindow/mainwindow.component';
 import { CompareComponent } from './components/compare/compare.component';
 import { DataFormComponent } from './components/data-form/data-form.component';
-
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  {path: '' , component:MainwindowComponent},
-  {path: 'DashBoard' , component:DashboardComponent},
+  {path: 'main' , component:MainwindowComponent, canActivate:[AuthGuard] },
+  {path: '', redirectTo:'LogIn', pathMatch:'full'},
+  {path: 'DashBoard' , component:DashboardComponent, canActivate:[AuthGuard]},
   {path: 'LogIn' , component:UserLogInComponent},
   {path: 'LogIn-Admin', component:AdminLogInComponent},
   {path: 'Register', component:RegistrationComponent},
-  {path: 'compare', component:CompareComponent},
-  {path: 'upload',component:DataFormComponent},
-
+  {path: 'compare', component:CompareComponent, canActivate:[AuthGuard]},
+  {path: 'data-form', component:DataFormComponent, canActivate:[AuthGuard]}
 
 ];
 

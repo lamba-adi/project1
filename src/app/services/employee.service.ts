@@ -56,12 +56,24 @@ export class EmployeeService {
       id:userInfo.id,
       firstName:userInfo.firstname,
       lastName: userInfo.lastname,
-      email: userInfo.email
+      email: userInfo.email,
+      auth: userInfo.Auth
     }:null;
   }
   loadCurrentAdmin(){
     const token = localStorage.getItem("admin_access_token");
     const userInfo = token !=null? this._jwtHelperService.decodeToken(token):null;
+    this.data = userInfo?{
+      id:userInfo.id,
+      firstName:userInfo.firstname,
+      lastName: userInfo.lastname,
+      email: userInfo.email,
+      auth: userInfo.Auth
+    }:null;
+  }
+
+  isLoggedIn(){
+    return (localStorage.getItem("user_access_token")||localStorage.getItem("admin_access_token")) ? true : false;
   }
 
   removeUserToken(){
