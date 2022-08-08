@@ -5,6 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 using HousingApp.Models;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HousingDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("MyDbConnection"))
       );
+builder.Services.Configure<FormOptions>(o =>
+{
+  o.ValueLengthLimit = int.MaxValue;
+  o.MultipartBodyLengthLimit = int.MaxValue;
+  o.MemoryBufferThreshold = int.MaxValue;
+});
+
 
 //Configuring JWT Token
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(x =>
@@ -49,7 +58,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+// files uplaod
+app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+  FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+  RequestPath = new PathString("/Resources")
 
+});
+// files upload
 
 app.UseHttpsRedirection();
 

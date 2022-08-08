@@ -36,7 +36,7 @@ export class DataFormComponent implements OnInit {
     formData.append('file',fileUpload,fileUpload.name);
 
 
-    this.http.post('https://localhost:7038/api/Upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://localhost:7038/api/UploadData/uploadFile', formData, {reportProgress: true, observe: 'events'})
       .subscribe({
         next: (event:any) => {
         if (event.type === HttpEventType.UploadProgress)
