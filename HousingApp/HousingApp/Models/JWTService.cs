@@ -24,7 +24,7 @@ namespace HousingApp.Models
       this.tokenDuration = Int32.Parse(config.GetSection("jwtConfig").GetSection("Duration").Value);
     }
 
-    public string generateToken(String id, String firstName, String lastName, String email)
+    public string generateUserToken(String id, String firstName, String lastName, String email, String authorization)
     {
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.SecretKey));
       var signature = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -33,7 +33,31 @@ namespace HousingApp.Models
                 new Claim("id",id),
                 new Claim("firstname",firstName),
                 new Claim("lastname",lastName),
-                new Claim("email",email)
+                new Claim("email",email),
+                new Claim("Auth", authorization)
+            };
+
+      var jwtToken = new JwtSecurityToken(
+          issuer: "localhost",
+          audience: "localhost",
+          claims: payload,
+          expires: DateTime.Now.AddMinutes(tokenDuration),
+          signingCredentials: signature
+          );
+      return new JwtSecurityTokenHandler().WriteToken(jwtToken);
+    }
+
+    public string generateAdminToken(string id, String firstName, String lastName, String email, String authorization)
+    {
+      var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.SecretKey));
+      var signature = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+      var payload = new[]
+      {
+                new Claim("id",id),
+                new Claim("firstname",firstName),
+                new Claim("lastname",lastName),
+                new Claim("email",email),
+                new Claim("Auth", authorization)
             };
 
       var jwtToken = new JwtSecurityToken(

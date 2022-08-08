@@ -2379,11 +2379,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\HousingApp.csproj",
+      "projectUniqueName": "C:\\Users\\aditya-lamba\\Documents\\GitHub\\project1\\HousingApp\\HousingApp\\HousingApp.csproj",
       "projectName": "HousingApp",
-      "projectPath": "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\HousingApp.csproj",
+      "projectPath": "C:\\Users\\aditya-lamba\\Documents\\GitHub\\project1\\HousingApp\\HousingApp\\HousingApp.csproj",
       "packagesPath": "C:\\Users\\aditya-lamba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aditya-lamba\\Documents\\training\\Capstone\\project-1\\HousingApp\\HousingApp\\obj\\",
+      "outputPath": "C:\\Users\\aditya-lamba\\Documents\\GitHub\\project1\\HousingApp\\HousingApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aditya-lamba\\AppData\\Roaming\\NuGet\\NuGet.Config",
