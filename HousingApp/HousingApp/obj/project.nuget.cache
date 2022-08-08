@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "++gK4weISA+vWhPq/GWlwhU+KxMYs4U6jRWYrYit6jWpcmK/12DjTGeZgPwRkdOO0gs3Qq99TqzZ1M3PQk8gnA==",
+  "dgSpecHash": "N8bSyCF1trpKXn4i8g6GG7Da+1lxP6WEGBic48aus8XkH0DtGYLFQ3mo52WgXlwQXqAxXu+UozYuA1g6RP2WEw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ayush-gupta\\Documents\\GitHub\\project1\\HousingApp\\HousingApp\\HousingApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ayush-gupta\\.nuget\\packages\\csvto\\2.0.3\\csvto.2.0.3.nupkg.sha512",
     "C:\\Users\\ayush-gupta\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ayush-gupta\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.7\\microsoft.aspnetcore.authentication.jwtbearer.6.0.7.nupkg.sha512",
     "C:\\Users\\ayush-gupta\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
@@ -64,12 +65,5 @@
     "C:\\Users\\ayush-gupta\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
     "C:\\Users\\ayush-gupta\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\ayush-gupta\\Documents\\GitHub\\project1\\HousingApp\\HousingApp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

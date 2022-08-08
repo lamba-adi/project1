@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HousingApplication.Models;
 using System.Net.Http.Headers;
+using System.Data;
 
 namespace HousingApp.Controllers
 {
@@ -19,7 +20,7 @@ namespace HousingApp.Controllers
     {
       this._Uploadcontext = upload_context;
       _config = config;
-      
+
     }
 
     [HttpPost("UploadData")]
@@ -36,24 +37,106 @@ namespace HousingApp.Controllers
     // file upload code
     [HttpPost("UploadFile")]
 
-    public IActionResult Upload()
+    public IActionResult UploadBulk()
     {
       try
       {
         var file = Request.Form.Files[0];
-        var folderName = Path.Combine("Resources", "Files");
+        var folderName = Path.Combine("Resources", "EmployeeData");
         var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
         if (file.Length > 0)
         {
           var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
           var fullPath = Path.Combine(pathToSave, fileName);
           var dbPath = Path.Combine(folderName, fileName);
-
           using (var stream = new FileStream(fullPath, FileMode.Create))
           {
             file.CopyTo(stream);
           }
+
+          var converter = new CsvTo.CsvConverter(fullPath, true);
+
+          DataTable dt = converter.ToDataTable();
+          foreach (DataRow dr in dt.Rows)
+          {
+            UploadDataModel upload = new UploadDataModel();
+            try
+            {
+              upload.country = Convert.ToString(dr["Country"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+              upload.area = Convert.ToString(dr["Area"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+              upload.typeOfHouse = Convert.ToString(dr["HouseType"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+              upload.sizeOfHouse = Convert.ToString(dr["HouseSize"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+            try
+            {
+              upload.costOfHouse = Convert.ToInt32(dr["Cost"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+              upload.rent = Convert.ToInt32(dr["Rent"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+              upload.rentTure = Convert.ToInt32(dr["RentTenure"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            
+            _Uploadcontext.Upload_DataModel.Add(upload);
+            _Uploadcontext.SaveChanges();
+          }
+          System.IO.File.Delete(fullPath);
+
+          //IEnumerable<string[]> c = converter.ToCollection();
+
           return Ok(new { dbPath });
         }
         else
@@ -61,12 +144,13 @@ namespace HousingApp.Controllers
           return BadRequest();
         }
       }
-
       catch (Exception ex)
       {
-        return StatusCode(500, $"Internal Server Error:{ex}");
+        return StatusCode(500, $"Internal server error: {ex}");
       }
     }
 
+
   }
 }
+
