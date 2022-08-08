@@ -84,7 +84,7 @@ namespace HousingApp.Controllers
       var useravailable = _empContext.empdata.Where(userdb => userdb.email == user.EmpEmail && userdb.password == Encrypt_Password(user.EmpPassword)).FirstOrDefault();
       if (useravailable != null)
       {
-        return Ok(new JWTService(_config).generateToken("userid", "fname", "lname", useravailable.email));
+        return Ok(new JWTService(_config).generateUserToken( useravailable.Id.ToString(), useravailable.firstName, useravailable.lastName, useravailable.email, "User"));
       }
       return Ok("failure");
     }
@@ -98,7 +98,7 @@ namespace HousingApp.Controllers
       var useravailable = _empContext.admindata.Where(admindb => admindb.EmpEmail == admin.EmpEmail && admindb.EmpPassword == admin.EmpPassword).FirstOrDefault();
       if (useravailable != null)
       {
-        return Ok(new JWTService(_config).generateToken("userid", "fname", "lname", useravailable.EmpEmail));
+        return Ok(new JWTService(_config).generateAdminToken("1", "Admin", "lname", useravailable.EmpEmail, "Admin"));
 
       }
       return Ok("failure");

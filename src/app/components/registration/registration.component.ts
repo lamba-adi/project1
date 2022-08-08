@@ -3,6 +3,7 @@ import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
 import {HttpClientModule, HttpResponse, HttpStatusCode} from '@angular/common/http'
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationsService } from 'angular2-notifications';
+import { Router } from '@angular/router';
 // import { ToastrService } from 'ngx-toastr';
 
 
@@ -27,7 +28,7 @@ export class RegistrationComponent implements OnInit {
   // private notifier: NotifierService;
 
 
-  constructor(private authService : AuthService, private service : NotificationsService){
+  constructor(private authService : AuthService, private service : NotificationsService, private _Router:Router){
 
   }
   registerForm = new FormGroup({
@@ -77,6 +78,7 @@ export class RegistrationComponent implements OnInit {
           // this.displayMsg = "Account Created Successfully!";
           this.onSuccess();
           console.log(res);
+          this._Router.navigate([""])
           // console.log(res)
 
 
