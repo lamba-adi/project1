@@ -32,25 +32,32 @@ onSubmitLoginForm() {
   this._EmployeeServices.adminLogin(this.admincred).subscribe(
     (response)=>{
       if(response=="failure")
+
       Swal.fire({
         // title: 'Success!',
-        text: 'Login Successfully',
-        icon: 'success',
+        text: 'Invalid Credentials',
+        icon: 'error',
         // confirmButtonText: 'Cool'
         showConfirmButton : false,
+        position:'top-end',
+        width : 200,
         timer : 1500
         // timer : 1200
       })
+
         // alert("invalid Email/Password")
       else
       {
         this._EmployeeServices.setAdminToken(response);
+
         Swal.fire({
           // title: 'Success!',
           text: 'Login Successfully',
           icon: 'success',
           // confirmButtonText: 'Cool'
           showConfirmButton : false,
+          position:'top-end',
+        width : 200,
           timer : 1500
           // timer : 1200
         })
