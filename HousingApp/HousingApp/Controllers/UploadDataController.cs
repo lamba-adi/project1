@@ -121,7 +121,7 @@ namespace HousingApp.Controllers
 
             try
             {
-              upload.rentTure = Convert.ToInt32(dr["RentTenure"]);
+              upload.rentTenure = Convert.ToInt32(dr["RentTenure"]);
 
             }
             catch (Exception e)

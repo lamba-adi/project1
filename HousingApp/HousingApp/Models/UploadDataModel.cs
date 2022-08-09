@@ -15,7 +15,7 @@ namespace HousingApp.Models
 
     public int rent { get; set; }
 
-    public int rentTure { get; set; }
+    public int rentTenure { get; set; }
 
   }
 }
