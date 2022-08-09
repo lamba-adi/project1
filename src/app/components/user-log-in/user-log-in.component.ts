@@ -54,6 +54,7 @@ onSubmitLoginForm() {
           timer : 2000
         })
         // alert("invalid Email/Password")
+        this.loginForm.reset();
       }
       else{
 
@@ -72,8 +73,12 @@ onSubmitLoginForm() {
           timer : 1500
           // timer : 1200
         })
-        window.location.reload();
-        this._Router.navigate(['/main']);
+        setTimeout(() => {
+          window.location.reload();
+          this._Router.navigate(['/main']);
+        }, 1000)
+
+
       }
 
     },

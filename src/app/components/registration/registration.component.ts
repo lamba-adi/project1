@@ -88,8 +88,12 @@ export class RegistrationComponent implements OnInit {
             showConfirmButton : false,
             timer : 2000
           })
-          console.log(res);
-          this._Router.navigate([""])
+          setTimeout(() => {
+            // window.location.reload();
+            this._Router.navigate(["/LogIn"])
+          }, 1000)
+          // console.log(res);
+
           // console.log(res)
 
 
@@ -102,7 +106,7 @@ export class RegistrationComponent implements OnInit {
             // confirmButtonText: 'Cool'
             width : '200',
             showConfirmButton : false,
-            timer : 2000
+            timer : 1500
           })
           // this.displayMsg = "Account Already Exists: try Another email.";
 

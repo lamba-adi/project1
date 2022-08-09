@@ -31,7 +31,7 @@ onSubmitLoginForm() {
   this.admincred.EmpPassword=this.adminForm.controls['password'].value;
   this._EmployeeServices.adminLogin(this.admincred).subscribe(
     (response)=>{
-      if(response=="failure")
+      if(response=="failure"){
 
       Swal.fire({
         // title: 'Success!',
@@ -44,7 +44,8 @@ onSubmitLoginForm() {
         timer : 1500
         // timer : 1200
       })
-
+      this.adminForm.reset();
+    }
         // alert("invalid Email/Password")
       else
       {
@@ -61,8 +62,10 @@ onSubmitLoginForm() {
           timer : 1500
           // timer : 1200
         })
-        window.location.reload();
-        this._Router.navigate(['/main']);
+        setTimeout(() => {
+          window.location.reload();
+          this._Router.navigate(['/main']);
+        }, 1000)
       }
 
     },
