@@ -170,18 +170,19 @@
                               </label>
                           </div>
                       </div>
-                      <div class="col-md-4">
-                        <span class="upload" *ngIf="progress > 0">
+                      <div class="flex">
+                        <span style="color: rgb(221, 0, 0);" class="upload" *ngIf="progress > 0">
                           {{progress}}%
-                        </span>
-                        <span class="upload" *ngIf="message">
+                        </span> &nbsp;
+                        <span style="color: rgb(235, 8, 8);" class="upload" *ngIf="message">
                           {{message}}
                         </span>
+                        </div>
                               <p class="text-sm text-gray-300">
                                   <span>File type: doc,pdf,types of images</span>
                               </p>
                       <div>
-                          <button style="width: 22rem;"  (click)="file.click()" type="button" class="my-3 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
+                          <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
                                       font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
                           Upload
                       </button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { UserLogInComponent } from '../user-log-in/user-log-in.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav',
@@ -29,6 +30,16 @@ export class NavComponent implements OnInit {
   logout(){
     this._EmployeeService.removeUserToken();
     this.data=null;
+    Swal.fire({
+      // title: 'Success!',
+      text: 'Logout Successfully',
+      icon: 'success',
+      // confirmButtonText: 'Cool'
+      width : '200',
+
+      showConfirmButton : false,
+      timer : 2000
+    })
     this._Router.navigate(["/"]);
   }
 
