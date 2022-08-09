@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-mainwindow',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainwindowComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _employeeService:EmployeeService) { }
 
+  data:any;
   ngOnInit(): void {
+    this.data=this._employeeService.data;
   }
 
 }
