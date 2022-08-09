@@ -44,6 +44,7 @@ export class DataFormComponent implements OnInit {
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
           this.onUploadFinished.emit(event.body);
+          console.log(event)
         }
       },
       error: (err: HttpErrorResponse) => console.log(err)
