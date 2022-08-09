@@ -6,6 +6,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import Swal from 'sweetalert2';
+import { endWith } from 'rxjs';
 
 
 @Component({
@@ -47,6 +48,8 @@ onSubmitLoginForm() {
           // title: 'Error!',
           text: 'Invalid Credentials',
           icon: 'error',
+          position : 'top-end',
+          width : '200',
           showConfirmButton : false,
           timer : 2000
         })
@@ -61,7 +64,11 @@ onSubmitLoginForm() {
           text: 'Login Successfully',
           icon: 'success',
           // confirmButtonText: 'Cool'
+          position : 'top-end',
+          width : '200',
           showConfirmButton : false,
+
+          // height : "1rem",
           timer : 1500
           // timer : 1200
         })

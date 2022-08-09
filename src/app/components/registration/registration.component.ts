@@ -83,6 +83,8 @@ export class RegistrationComponent implements OnInit {
             text: 'Registered Successfully',
             icon: 'success',
             // confirmButtonText: 'Cool'
+            width : '200',
+
             showConfirmButton : false,
             timer : 2000
           })
@@ -98,6 +100,7 @@ export class RegistrationComponent implements OnInit {
             text: 'Already Registered',
             icon: 'error',
             // confirmButtonText: 'Cool'
+            width : '200',
             showConfirmButton : false,
             timer : 2000
           })

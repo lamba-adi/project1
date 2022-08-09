@@ -5,6 +5,7 @@ import { Login } from 'src/app/services/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-log-in',
@@ -13,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AdminLogInComponent implements OnInit {
 
-  
+
 
   admincred:Login=new Login('','');
   constructor(private _EmployeeServices:EmployeeService, private _Router:Router) { }
@@ -31,20 +32,38 @@ onSubmitLoginForm() {
   this._EmployeeServices.adminLogin(this.admincred).subscribe(
     (response)=>{
       if(response=="failure")
-        alert("invalid Email/Password")        
+      Swal.fire({
+        // title: 'Success!',
+        text: 'Login Successfully',
+        icon: 'success',
+        // confirmButtonText: 'Cool'
+        showConfirmButton : false,
+        timer : 1500
+        // timer : 1200
+      })
+        // alert("invalid Email/Password")
       else
       {
         this._EmployeeServices.setAdminToken(response);
+        Swal.fire({
+          // title: 'Success!',
+          text: 'Login Successfully',
+          icon: 'success',
+          // confirmButtonText: 'Cool'
+          showConfirmButton : false,
+          timer : 1500
+          // timer : 1200
+        })
         window.location.reload();
         this._Router.navigate(['/main']);
       }
-        
+
     },
     (error)=>{
       console.log(error)
     }
   )
- 
+
 }
 
 
