@@ -44,10 +44,11 @@ onSubmitLoginForm() {
       if(response=="failure"){
         // this.onError("Invalid Credentials")
         Swal.fire({
-          title: 'Error!',
+          // title: 'Error!',
           text: 'Invalid Credentials',
           icon: 'error',
-          confirmButtonText: 'Close'
+          showConfirmButton : false,
+          timer : 2000
         })
         // alert("invalid Email/Password")
       }
@@ -56,12 +57,15 @@ onSubmitLoginForm() {
 
         this._EmployeeServices.setUserToken(response);
         Swal.fire({
-          title: 'Success!',
+          // title: 'Success!',
           text: 'Login Successfully',
           icon: 'success',
-          confirmButtonText: 'Cool'
+          // confirmButtonText: 'Cool'
+          showConfirmButton : false,
+          timer : 1500
+          // timer : 1200
         })
-        // window.location.reload();
+        window.location.reload();
         this._Router.navigate(['/main']);
       }
 
@@ -84,16 +88,6 @@ get f(){
       this._Router.navigate(['/main']);
   }
 
-  onSuccess(msg:any){
-    this.service.success('Success',msg,{
-      position:['top','left'],
-      timeOut: 2000,
-      animate: 'fade',
-      showProgressBar:true,
-
-    })
-
-  }
 
 
 

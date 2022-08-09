@@ -78,7 +78,14 @@ export class RegistrationComponent implements OnInit {
 
         if(res == "Success") {
           // this.displayMsg = "Account Created Successfully!";
-
+          Swal.fire({
+            // title: 'Success!',
+            text: 'Registered Successfully',
+            icon: 'success',
+            // confirmButtonText: 'Cool'
+            showConfirmButton : false,
+            timer : 2000
+          })
           console.log(res);
           this._Router.navigate([""])
           // console.log(res)
@@ -86,6 +93,14 @@ export class RegistrationComponent implements OnInit {
 
         }
         else if(res == "AlreadyRegistered"){
+          Swal.fire({
+            // title: 'Error!',
+            text: 'Already Registered',
+            icon: 'error',
+            // confirmButtonText: 'Cool'
+            showConfirmButton : false,
+            timer : 2000
+          })
           // this.displayMsg = "Account Already Exists: try Another email.";
 
 
