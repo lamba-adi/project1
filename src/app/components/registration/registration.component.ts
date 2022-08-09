@@ -3,8 +3,10 @@ import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
 import {HttpClientModule, HttpResponse, HttpStatusCode} from '@angular/common/http'
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationsService } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 // import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 
 
@@ -76,7 +78,7 @@ export class RegistrationComponent implements OnInit {
 
         if(res == "Success") {
           // this.displayMsg = "Account Created Successfully!";
-          this.onSuccess();
+
           console.log(res);
           this._Router.navigate([""])
           // console.log(res)
@@ -85,7 +87,8 @@ export class RegistrationComponent implements OnInit {
         }
         else if(res == "AlreadyRegistered"){
           // this.displayMsg = "Account Already Exists: try Another email.";
-          this.onError();
+
+
         }
         else {
           this.displayMsg = "Something went Wrong.";
@@ -104,24 +107,7 @@ export class RegistrationComponent implements OnInit {
 
 
   // msg:string='welcome';
-  onSuccess(){
-    this.service.success('Success',"Account Created Successfully!",{
-      position:['top','left'],
-      timeOut: 2000,
-      animate: 'fade',
-      showProgressBar:true,
 
-    })
-
-  }
-  onError()  {
-    this.service.error('Error',"Account Already Exists: try Another email.",{
-      position:['top'],
-      timeOut: 2000,
-      animate: 'fade',
-      showProgressBar:true,
-    })
-  }
 
 
 

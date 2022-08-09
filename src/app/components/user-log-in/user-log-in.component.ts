@@ -4,6 +4,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { Login } from 'src/app/services/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,7 +16,16 @@ import { Router } from '@angular/router';
 export class UserLogInComponent implements OnInit {
 
   usercred:Login=new Login('','');
-  constructor(private _EmployeeServices:EmployeeService, private _Router:Router) { }
+  constructor(private _EmployeeServices:EmployeeService, private _Router:Router,private service : NotificationsService) { }
+
+  // onError(msg:string)  {
+  //   this.service.error('Error',msg,{
+  //     position:['top','left'],
+  //     timeOut: 2000,
+  //     animate: 'fade',
+  //     showProgressBar:true,
+  //   })
+  // }
 
   data=this._EmployeeServices.data;
 
@@ -29,15 +40,31 @@ onSubmitLoginForm() {
 
   this._EmployeeServices.userLogin(this.usercred).subscribe(
     (response)=>{
-      if(response=="failure")
-        alert("invalid Email/Password")
-        
+
+      if(response=="failure"){
+        // this.onError("Invalid Credentials")
+        Swal.fire({
+          title: 'Error!',
+          text: 'Invalid Credentials',
+          icon: 'error',
+          confirmButtonText: 'Close'
+        })
+        // alert("invalid Email/Password")
+      }
       else{
+
+
         this._EmployeeServices.setUserToken(response);
-        window.location.reload();
+        Swal.fire({
+          title: 'Success!',
+          text: 'Login Successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+        // window.location.reload();
         this._Router.navigate(['/main']);
       }
-        
+
     },
     (error)=>{
       console.log(error)
@@ -48,7 +75,7 @@ onSubmitLoginForm() {
 get f(){
     return this.loginForm.controls;
   }
-  
+
 
   ngOnInit(): void {
     this._EmployeeServices.loadCurrentUser();
@@ -56,5 +83,18 @@ get f(){
     if(this.data!=null)
       this._Router.navigate(['/main']);
   }
+
+  onSuccess(msg:any){
+    this.service.success('Success',msg,{
+      position:['top','left'],
+      timeOut: 2000,
+      animate: 'fade',
+      showProgressBar:true,
+
+    })
+
+  }
+
+
 
 }
