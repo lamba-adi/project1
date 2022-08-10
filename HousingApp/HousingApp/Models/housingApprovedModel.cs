@@ -20,7 +20,7 @@ namespace HousingApp.Models
 
     public int SizeOfHouse { get; set; }
 
-    public String CostOfHouse { get; set; }
+    public int CostOfHouse { get; set; }
 
     public int Rent { get; set; }
 

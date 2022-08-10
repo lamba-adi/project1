@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { UploadService } from 'src/app/services/upload.service';
 
 
 @Component({
@@ -9,28 +10,40 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private _employeeService:EmployeeService) { }
+  constructor(private _employeeService:EmployeeService, private _uploadService:UploadService) { }
 
-  data=this._employeeService.data;
+  user=this._employeeService.data;
 
-  employee: any[]=[
-    {
-      admnno:12314,org:"Student1",country:"India",area:"Delhi",costOfHouse:13512,typeOfHouse:"2BHK",rent:200,tenure:"6 months"
-    },
-    {
-      admnno:123123,org:"Student2",country:"India",area:"Mumbai",costOfHouse:123512,typeOfHouse:"2BHK",rent:200,tenure:"6 months"
-    },
-    {
-      admnno:123124,org:"Student3",country:"India",area:"Delhi",costOfHouse:123123,typeOfHouse:"2BHK",rent:100,tenure:"6 months"
-    },
-    {
-      admnno:123125,org:"Student4",country:"India",area:"Mumbai",costOfHouse:22134,typeOfHouse:"2BHK",rent:800,tenure:"6 months"
-    },
-    {
-      admnno:123126,org:"Student5",country:"India",area:"Delhi",costOfHouse:23423424,typeOfHouse:"2BHK",rent:1200,tenure:"6 months"
-    }
-  ]
+  data: any;
+
+  getdata(){
+    this._uploadService.getDataforAdmin().subscribe(response =>{
+      this.data=response;
+      console.log(response);
+    });
+    console.log(this.data);
+  }
+
+  approveUserData(entry:number){
+    console.log(entry)
+    this._uploadService.approvedata(entry).subscribe(response =>{
+      this.data = this.data.filter(
+        (u:any) => u.entryID !== entry
+      );
+    });
+  }
+
+  rejectUserData(entry:number){
+    this._uploadService.rejectdata(entry).subscribe(response =>{
+      this.data = this.data.filter(
+        (u:any) => u.entryID !== entry
+      );
+    });
+
+  }
+
   ngOnInit(): void {
+    this.getdata();
   }
 
 }

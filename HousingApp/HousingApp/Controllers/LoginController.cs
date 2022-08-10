@@ -14,7 +14,7 @@ namespace HousingApp.Controllers
   [Route("api/[controller]")]
   public class LoginController : Controller
   {
-    string key = "1prt56";
+    //string key = "1prt56";
     private readonly HousingDbContext _empContext;
     private readonly IConfiguration _config;
 

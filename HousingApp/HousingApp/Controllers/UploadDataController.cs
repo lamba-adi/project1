@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using HousingApplication.Models;
 using System.Net.Http.Headers;
 using System.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace HousingApp.Controllers
 {
@@ -25,13 +26,122 @@ namespace HousingApp.Controllers
 
     [HttpPost("UploadData")]
 
-    public IActionResult udata(UploadDataModel uploaddata)
+    public IActionResult udata(housingApprovalModel uploaddata)
 
     {
 
-      _Uploadcontext.Upload_DataModel.Add(uploaddata);
+      _Uploadcontext.Housing_Approval.Add(uploaddata);
       _Uploadcontext.SaveChanges();
       return Ok("Success");
+    }
+
+    [HttpPost("Approvedata")]
+
+    public async Task<IActionResult> dataapproval(int entryid)
+    {
+      var dataentry = _Uploadcontext.Housing_Approval.Find(entryid);
+
+      housingApprovedModel entry = new housingApprovedModel();
+
+
+      
+      {
+        try
+        {
+          entry.EmpID = dataentry.EmpID;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+        try
+        {
+          entry.Organisation = dataentry.Organisation;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+        try
+        {
+          entry.Country = dataentry.Country;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+        try
+        {
+          entry.City = dataentry.City;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+
+        try
+        {
+          entry.TypeOfHouse = dataentry.TypeOfHouse;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+        try
+        {
+          entry.CostOfHouse = dataentry.CostOfHouse;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+        try
+        {
+          entry.SizeOfHouse = dataentry.SizeOfHouse;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+        try
+        {
+          entry.Rent = dataentry.Rent;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
+        try
+        {
+          entry.Tenure = dataentry.Tenure;
+        }
+        catch (Exception e)
+        {
+          Console.WriteLine(e.Message);
+        }
+      }
+
+
+      await _Uploadcontext.Housing_Approved.AddAsync(entry);
+      _Uploadcontext.Housing_Approval.Remove((housingApprovalModel)dataentry);
+      _Uploadcontext.SaveChanges();
+
+
+      return Ok("");
+    }
+
+    [HttpGet("approvaldata")]
+    public async Task<IEnumerable<housingApprovalModel>> GetEmp()
+    {
+      return await _Uploadcontext.Housing_Approval.ToListAsync();
     }
 
     // file upload code
@@ -59,10 +169,10 @@ namespace HousingApp.Controllers
           DataTable dt = converter.ToDataTable();
           foreach (DataRow dr in dt.Rows)
           {
-            UploadDataModel upload = new UploadDataModel();
+            housingApprovalModel upload = new housingApprovalModel();
             try
             {
-              upload.country = Convert.ToString(dr["Country"]);
+              upload.EmpID = "1";
 
             }
             catch (Exception e)
@@ -72,7 +182,7 @@ namespace HousingApp.Controllers
 
             try
             {
-              upload.area = Convert.ToString(dr["Area"]);
+              upload.Organisation = "org1";
 
             }
             catch (Exception e)
@@ -82,7 +192,7 @@ namespace HousingApp.Controllers
 
             try
             {
-              upload.typeOfHouse = Convert.ToString(dr["HouseType"]);
+              upload.Country = Convert.ToString(dr["Country"]);
 
             }
             catch (Exception e)
@@ -92,16 +202,7 @@ namespace HousingApp.Controllers
 
             try
             {
-              upload.sizeOfHouse = Convert.ToString(dr["HouseSize"]);
-
-            }
-            catch (Exception e)
-            {
-              Console.WriteLine(e.Message);
-            }
-            try
-            {
-              upload.costOfHouse = Convert.ToInt32(dr["Cost"]);
+              upload.City = Convert.ToString(dr["Area"]);
 
             }
             catch (Exception e)
@@ -111,7 +212,7 @@ namespace HousingApp.Controllers
 
             try
             {
-              upload.rent = Convert.ToInt32(dr["Rent"]);
+              upload.TypeOfHouse = Convert.ToString(dr["HouseType"]);
 
             }
             catch (Exception e)
@@ -121,7 +222,36 @@ namespace HousingApp.Controllers
 
             try
             {
-              upload.rentTenure = Convert.ToInt32(dr["RentTenure"]);
+              upload.SizeOfHouse = Convert.ToInt32(dr["HouseSize"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+            try
+            {
+              upload.CostOfHouse = Convert.ToInt32(dr["Cost"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+              upload.Rent = Convert.ToInt32(dr["Rent"]);
+
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+              upload.Tenure = Convert.ToInt32(dr["RentTenure"]);
 
             }
             catch (Exception e)
@@ -130,7 +260,7 @@ namespace HousingApp.Controllers
             }
 
             
-            _Uploadcontext.Upload_DataModel.Add(upload);
+            _Uploadcontext.Housing_Approval.Add(upload);
             _Uploadcontext.SaveChanges();
           }
           System.IO.File.Delete(fullPath);
@@ -148,6 +278,16 @@ namespace HousingApp.Controllers
       {
         return StatusCode(500, $"Internal server error: {ex}");
       }
+    }
+
+    [HttpDelete("RejectData")]
+
+    public IActionResult Delete(int entryID)
+    {
+      var entry = _Uploadcontext.Housing_Approval.Find(entryID);
+        _Uploadcontext.Housing_Approval.Remove((housingApprovalModel)entry);
+        _Uploadcontext.SaveChanges();
+        return Ok("success");
     }
 
 

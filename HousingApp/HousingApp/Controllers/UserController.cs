@@ -19,7 +19,7 @@ namespace HousingApplication.Controllers
 
     public class UserController : ControllerBase
     {
-    string key = "1prt56";
+    //string key = "1prt56";
     private readonly IConfiguration _config;
         public readonly HousingDbContext _context;
         private string Encrypt_Password(string password)

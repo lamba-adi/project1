@@ -5,6 +5,7 @@ import { FormControl,FormGroup } from '@angular/forms';
 // import { FileUploadService } from './file-upload.service';
 // import {FileUploadModule} from 'primeng/fileupload';
 import {HttpClientModule} from '@angular/common/http';
+import { EmployeeService } from 'src/app/services/employee.service';
 @Component({
   selector: 'app-data-form',
   templateUrl: './data-form.component.html',
@@ -22,7 +23,9 @@ export class DataFormComponent implements OnInit {
   @Output() public onUploadFinished = new EventEmitter();
 
 
-  constructor(private http : HttpClient,private  _uploadService : UploadService) { }
+  constructor(private http : HttpClient,private  _uploadService : UploadService, private _employeeService:EmployeeService) { }
+
+  user=this._employeeService.data;  
 
   ngOnInit(): void {
   }
@@ -36,7 +39,7 @@ export class DataFormComponent implements OnInit {
     formData.append('file',fileUpload,fileUpload.name);
 
 
-    this.http.post('https://localhost:7038/api/UploadData/uploadFile', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('https://localhost:7038/api/UploadData/uploadFile',formData, {reportProgress: true, observe: 'events'})
       .subscribe({
         next: (event:any) => {
         if (event.type === HttpEventType.UploadProgress)

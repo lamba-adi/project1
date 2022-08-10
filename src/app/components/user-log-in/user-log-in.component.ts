@@ -94,7 +94,10 @@ get f(){
 
 
   ngOnInit(): void {
-    this._EmployeeServices.loadCurrentUser();
+    if(localStorage.getItem("admin_access_token")!=null)
+      this._EmployeeServices.loadCurrentAdmin;
+    else
+      this._EmployeeServices.loadCurrentUser();
     this.data=this._EmployeeServices.data;
     if(this.data!=null)
       this._Router.navigate(['/main']);
