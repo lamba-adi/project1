@@ -44,4 +44,9 @@ export class UploadService {
       responseType:'text'
     })
  }
+
+
+ getDataFormCompare() {
+  return this.http.get(this.baseUrl+"UploadData/Approvedata");
+ }
 }

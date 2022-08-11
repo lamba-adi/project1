@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-compare',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompareComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _service:UploadService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

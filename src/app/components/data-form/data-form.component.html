@@ -28,19 +28,19 @@
 
 
 <div class="flex flex-row">
-  <div class="formu flex justify-left">
+  <div class="formu flex">
     <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
-      <div class="max-w-full w-full space-y-8">
+      <div class="max-w-full w-full space-y-4">
         <div>
           <!-- <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"> -->
           <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900"></h2>
 
         </div>
-        <form class="mt-8 space-y-8 dataform" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
+        <form class="mt-4 space-y-4 dataform" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
 
           <div class="rounded-md  space-y-5">
             <div class="">
-              <label  for="Country" >Country</label>
+              <!-- <label  for="Country" >Country</label> -->
               <input  id="password" name="password" formControlName = "country" type="text"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
 
                 <!-- <div class="text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
@@ -55,8 +55,8 @@
 
             </div>
             <div>
-              <label for="Area" class="sr-only">Area</label>
-              <input id="area" name="text" type="text" formControlName = "area"   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Area">
+              <label for="city" class="sr-only">City</label>
+              <input id="city" name="text" type="text" formControlName = "city"   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="City">
               <!-- <div class="text-danger" *ngIf="LastName.errors?.['required']
               && (LastName.touched || LastName.dirty)">
                Last Name is required !
@@ -87,7 +87,7 @@
 
 
             </div> -->
-            <br>
+
           </div>
             <div>
               <label for="housecost" class="sr-only">House Cost</label>
@@ -143,18 +143,18 @@
     </div>
   </div>
 
-  <div class="min-h py-12 px-4 sm:px-6 lg:px-6  ">
+  <div class="min-h py-12 px-4 sm:px-6 lg:px-6 mt-6  ">
     <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
       <div class="text-center">
         <h2 class="mt-2 text-3xl font-bold text-gray-900">
           File Upload!
         </h2>
-        <p class="mt-2 text-sm text-gray-400">Lorem ipsum is placeholder text.</p>
+
       </div>
 
 
                       <div class="grid grid-cols-1 space-y-6">
-                                      <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
+                                      <label class="text-sm text-center font-bold text-gray-500 tracking-wide">Attach Document</label>
                           <div class="flex items-center justify-center w-full">
                               <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
                                   <div class="h-full w-full text-center flex flex-col justify-center items-center  ">
@@ -170,16 +170,9 @@
                               </label>
                           </div>
                       </div>
-                      <div class="flex">
-                        <span style="color: rgb(221, 0, 0);" class="upload" *ngIf="progress > 0">
-                          {{progress}}%
-                        </span> &nbsp;
-                        <span style="color: rgb(235, 8, 8);" class="upload" *ngIf="message">
-                          {{message}}
-                        </span>
-                        </div>
-                              <p class="text-sm text-gray-300">
-                                  <span>File type: doc,pdf,types of images</span>
+
+                              <p class="text-sm text-center mt-3 text-gray-300">
+                                  <span>File type: cxv.</span>
                               </p>
                       <div>
                           <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide

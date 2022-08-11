@@ -6,6 +6,7 @@ import { FormControl,FormGroup } from '@angular/forms';
 // import {FileUploadModule} from 'primeng/fileupload';
 import {HttpClientModule} from '@angular/common/http';
 import { EmployeeService } from 'src/app/services/employee.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-data-form',
   templateUrl: './data-form.component.html',
@@ -25,7 +26,7 @@ export class DataFormComponent implements OnInit {
 
   constructor(private http : HttpClient,private  _uploadService : UploadService, private _employeeService:EmployeeService) { }
 
-  user=this._employeeService.data;  
+  user=this._employeeService.data;
 
   ngOnInit(): void {
   }
@@ -47,7 +48,16 @@ export class DataFormComponent implements OnInit {
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
           this.onUploadFinished.emit(event.body);
-          console.log(event)
+          console.log(event);
+          Swal.fire({
+            // title: 'Error!',
+            text: 'Your File is Uploaded Successfully',
+            icon: 'success',
+            position : 'center',
+            width : '400',
+            showConfirmButton : false,
+            timer : 2000
+          })
         }
       },
       error: (err: HttpErrorResponse) => console.log(err)
@@ -56,8 +66,9 @@ export class DataFormComponent implements OnInit {
 
   HousingForm = new FormGroup({
     // employeeId : new FormControl('', [Validators.required]),
+    Empid:new FormControl(''),
     country : new FormControl(''),
-    area : new FormControl(''),
+    city : new FormControl(''),
     typeOfHouse : new FormControl(''),
     sizeOfHouse : new FormControl(''),
     costOfHouse  : new FormControl(''),
@@ -69,8 +80,9 @@ export class DataFormComponent implements OnInit {
     console.log(this.HousingForm.value)
 
     this._uploadService.uploadform([
+
       this.HousingForm.value.country,
-      this.HousingForm.value.area,
+      this.HousingForm.value.city,
       this.HousingForm.value.typeOfHouse,
       this.HousingForm.value.sizeOfHouse,
       this.HousingForm.value.costOfHouse,
@@ -86,7 +98,7 @@ export class DataFormComponent implements OnInit {
 
       }
     })
-
+    this.HousingForm.reset()
 
   }
 
