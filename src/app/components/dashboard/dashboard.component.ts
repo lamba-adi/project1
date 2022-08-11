@@ -77,6 +77,9 @@ export class DashboardComponent implements OnInit {
   onEditSubmit(){
     this._uploadService.updateAndPost(this.editInfo.result.entryID, this.entryform.value).subscribe({next :(response) =>{
       console.log(response);
+      this.data = this.data.filter(
+        (u:any) => u.entryID !== this.editInfo.result.entryID
+      );
     }});
     this.showPopupForm=false;
   }
