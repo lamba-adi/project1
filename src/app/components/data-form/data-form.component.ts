@@ -6,6 +6,9 @@ import { FormControl,FormGroup } from '@angular/forms';
 // import {FileUploadModule} from 'primeng/fileupload';
 import {HttpClientModule} from '@angular/common/http';
 import { EmployeeService } from 'src/app/services/employee.service';
+import Swal from 'sweetalert2';
+
+
 @Component({
   selector: 'app-data-form',
   templateUrl: './data-form.component.html',
@@ -37,6 +40,7 @@ export class DataFormComponent implements OnInit {
     let fileUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file',fileUpload,fileUpload.name);
+    formData.append('ID',this.user.id);
 
 
     this.http.post('https://localhost:7038/api/UploadData/uploadFile',formData, {reportProgress: true, observe: 'events'})
@@ -46,6 +50,19 @@ export class DataFormComponent implements OnInit {
           this.progress = Math.round(100 * event.loaded / event.total);
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
+          Swal.fire({
+            // title: 'Success!',
+            text: 'Uploaded Successfully',
+            icon: 'success',
+            // confirmButtonText: 'Cool'
+            position : 'top',
+            width : '200',
+            showConfirmButton : false,
+  
+            // height : "1rem",
+            timer : 1500
+            // timer : 1200
+          })
           this.onUploadFinished.emit(event.body);
           console.log(event)
         }
