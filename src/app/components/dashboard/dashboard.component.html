@@ -1,5 +1,5 @@
-<div class="flex pl-4 pt-8 pb-4 z-0 justify-center " *ngIf="user.auth=='Admin'">
-    <div class="overflow-x-auto relative w-fit shadow-md sm:rounded-lg">
+<div class="flex pl-4 pt-8 pb-4 z-0  justify-center " *ngIf="user.auth=='Admin'">
+    <div class="overflow-x-auto relative w-23\1/24 shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let item of data">
+                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let item of data" (dblclick)="openEditForm(item.entryID)">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{item.entryID}}
                     </th>
@@ -53,8 +53,13 @@
                         ${{item.rent}}/{{item.tenure}}
                     </td>
                     <td class="py-4 px-6">
-                        <button class="bg-green-500 hover:bg-green-300 text-gray-800 font-semibold py-2 px-2 border border-gray-400 rounded shadow" (click)="approveUserData(item.entryID)">Approve</button>
+                        <button class="bg-green-500 hover:bg-green-300 text-gray-800 font-semibold py-2 px-2 border border-gray-400 rounded shadow" (click)="approveUserData(item.entryID)">Approve</button> &nbsp;
                         <button class="bg-red-500 hover:bg-red-300 text-gray-800 font-semibold py-2 px-3 border border-gray-400 rounded shadow" (click)="rejectUserData(item.entryID)">Reject</button>
+                    </td>
+                </tr>
+                <tr *ngIf="data.length==0">
+                    <td colspan="9" class="h4 py-8 pl-80">
+                        You are Up-To-Date with Approve Requests
                     </td>
                 </tr>
             </tbody>
@@ -62,6 +67,82 @@
     </div>
 </div>
 
+
+
+<button class="fixed z-30 inset-0 bg-black opacity-20 cursor-default" tabindex="-1" *ngIf="showPopupForm" (click)="closePopupForm()"></button>
+<div class=" origin-center z-40 absolute transform left-28 top-10 w-4/5 bg-white shadow-sm rounded-2xl" *ngIf="showPopupForm">
+    <button class="origin-right right-3 top-2 px-1 absolute text-red-500 font-bold opacity-80 rounded-3xl" (click)="closePopupForm()">
+        X
+    </button>
+    <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
+        <div class="max-w-full w-full space-y-6">      
+          <h4 class="text-center">Edit Form</h4>    
+          <form class="mt-8 ml-8 space-y-6 dataform justify-center" [formGroup]="entryform" (ngSubmit) = "onEditSubmit()" method = "POST" >
+  
+            <div class=" rounded-md  space-y-6  overflow-auto">
+              <div class=" flex pr-40">
+                <label  for="Country" class="pt-1 pr-11">Entry ID</label>&nbsp;
+                <input  id="password" formControlName = "entryID" type="text"  readonly  class="appearance-none w-28 relative block  px-3 py-2 border bg-slate-300 cursor-default border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
+  
+              </div>
+              <div class="flex ">
+                <div class="flex pr-48">
+                  <label  for="Country" class="pt-1 pr-12">Country</label>
+                  <input  id="password" formControlName = "country" type="text"  class="appearance-none w-48 relative block px-2 py- border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
+    
+                </div>
+                <div class="flex">
+                  <label for="Area" class="pt-1 pr-14 ">City</label>&nbsp;
+                  <input id="area" type="text"  formControlName = "city"   class="appearance-none relative block w-48 px-2 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Area">
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex pr-48">
+                  <label for="typeofHouses" class="pt-1 pr-4">House Type</label>&nbsp;
+                  <input id="typeofhouses" type="text" formControlName = "typeOfHouse" autocomplete="email" required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Type">
+    
+                </div>
+                <div class="flex">
+                  <label for="sizeofhouses" class="pt-1 pr-4">House Size</label>&nbsp;
+                  <input id="housesize" type="text" formControlName = "sizeOfHouse"  required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Size">
+                </div>
+              </div>
+              <div class="flex">
+                <label for="housecost" class="pt-1 pr-4">House Cost</label>&nbsp;
+                <input id="housecost" type="text" formControlName = "costOfHouse"  required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Cost">
+              </div>
+              <div class="flex">
+                <div class=" flex pr-48">
+                  <label for="rent" class="pt-1 pr-16">Rent</label>&nbsp;
+                  <input id="rent" type="text" formControlName = "rent"  required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent">
+                </div>
+    
+                <div class="flex">
+                  <label for="rentoftenure" class="pt-1 pl-1 pr-2">Rent Tenure</label>&nbsp;
+                  <input id="renttenure" type="text" formControlName = "tenure"  required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent tenure">
+                </div>
+              </div>
+            
+            </div>
+            <div class="relative w-full">
+              <button    type="submit" class="group right-0  w-80  flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                  <!-- Heroicon name: solid/lock-closed -->
+                  <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                Update & Apprrove
+              </button>
+  
+  
+  
+            
+            </div>
+          </form>
+        </div>
+
+</div>
 
 <div class="flex pl-4 pt-40 pb-4 z-0 justify-center h2" *ngIf="user.auth!='Admin'">
     You don't have Authorization

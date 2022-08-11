@@ -32,6 +32,10 @@ export class UploadService {
    return this.http.get(this.baseUrl+"UploadData/approvaldata");
  }
 
+ getSingleData(entryid:number){
+  return this.http.get(this.baseUrl+"UploadData/singledata?entryid="+entryid)
+ }
+
  approvedata(entryid:number){
   return this.http.post(this.baseUrl+"UploadData/Approvedata?entryID="+entryid,
     {
@@ -45,8 +49,29 @@ export class UploadService {
     })
  }
 
-
  getDataFormCompare() {
   return this.http.get(this.baseUrl+"UploadData/Approvedata");
+ }
+
+ updateAndPost(id:string,upload:any ){
+  console.log(upload);
+   return this.http.put(this.baseUrl+"UploadData/updateandPost?entryid="+id, {
+    entryID: upload.entryID,
+    EmpID:upload.empID,
+   Organisation: upload.organisation,
+   Country:upload.country,
+   City:upload.city,
+   TypeOfHouse:upload.typeOfHouse,
+   SizeOfHouse:upload.sizeOfHouse,
+   CostOfHouse:upload.costOfHouse,
+   Rent:upload.rent,
+    Tenure:upload.tenure
+
+   },
+   {
+    responseType:'text'
+  })
+
+
  }
 }

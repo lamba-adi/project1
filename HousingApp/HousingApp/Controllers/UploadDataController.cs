@@ -144,6 +144,16 @@ namespace HousingApp.Controllers
       return await _Uploadcontext.Housing_Approval.ToListAsync();
     }
 
+
+    [HttpGet("singledata")]
+
+    public IActionResult GetSingleData(int entryid)
+    {
+      var userinfo = _Uploadcontext.Housing_Approval.FindAsync(entryid);
+      return Ok(userinfo);
+    }
+
+
     // file upload code
     [HttpPost("UploadFile")]
 
@@ -151,7 +161,10 @@ namespace HousingApp.Controllers
     {
       try
       {
+
         var file = Request.Form.Files[0];
+        var Identity = Request.Form["ID"];
+        var user = _Uploadcontext.empdata.Find(int.Parse(Identity));
         var folderName = Path.Combine("Resources", "EmployeeData");
         var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
         if (file.Length > 0)
@@ -172,7 +185,7 @@ namespace HousingApp.Controllers
             housingApprovalModel upload = new housingApprovalModel();
             try
             {
-              upload.EmpID = "1";
+              upload.EmpID = user.Id.ToString();
 
             }
             catch (Exception e)
@@ -278,6 +291,30 @@ namespace HousingApp.Controllers
       {
         return StatusCode(500, $"Internal server error: {ex}");
       }
+    }
+
+    [HttpPut("updateandPost")]
+    public async Task<IActionResult> updateAndPost(int entryid,housingApprovalModel updateentry)
+    {
+      var entry = _Uploadcontext.Housing_Approval.Find(entryid);
+      if (entry == null)
+      {
+        return NotFound();
+      }
+
+      
+      entry.Country=updateentry.Country;
+      entry.City=updateentry.City;
+      entry.Organisation=updateentry.Organisation;
+      entry.EmpID=updateentry.EmpID;
+      entry.TypeOfHouse=updateentry.TypeOfHouse;
+      entry.CostOfHouse=updateentry.CostOfHouse;
+      entry.SizeOfHouse=updateentry.SizeOfHouse;
+      entry.Rent = updateentry.Rent;
+      entry.Tenure=updateentry.Tenure;
+      _Uploadcontext.SaveChanges();
+      await dataapproval(entryid);
+      return Ok("");
     }
 
     [HttpDelete("RejectData")]
