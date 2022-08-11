@@ -28,22 +28,12 @@
 
 
 
-<div class="flex flex-row">
-  <div class="formu flex">
-    <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
-      <div class="max-w-full w-full space-y-4">
-        <div>
-          <!-- <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"> -->
-          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900"></h2>
-
-        </div>
-        <form class="mt-4 space-y-4 dataform" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
 
 <div class="flex flex-row justify-center">
   <div class="formu flex justify-left">
     <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
       <div class="max-w-full w-full space-y-8">
-        <form class="mt-8 space-y-8 dataform" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
+        <form class="mt-8 space-y-8 w-full dataform" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
 
 
           <div class="rounded-md  space-y-5">
@@ -156,7 +146,7 @@
 
   <div class="min-h py-12 px-4 sm:px-6 lg:px-6 ">
 
-    <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
+    <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10 upload">
       <div class="text-center">
         <h2 class="mt-2 text-3xl font-bold text-gray-900">
           File Upload!
@@ -186,18 +176,11 @@
                       </div>
 
 
-                              <p class="text-sm text-center mt-3 text-gray-300">
-                                  <span>File type: cxv.</span>
-                              </p>
 
-                      <div class="flex">
-                        <span style="color: rgb(221, 0, 0);" class="upload" *ngIf="progress > 0">
-                          {{progress}}%
-                        </span>
-                      </div>
+
 
                       <div>
-                          <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 w-full flex justify-center bg-blue-500 text-gray-100 p-4 mt-10 rounded-full tracking-wide
+                          <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 mt-4 w-full flex justify-center bg-blue-500 text-gray-100 p-4 mt-10 rounded-full tracking-wide
                                       font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
                           Upload
                       </button>
@@ -210,3 +193,4 @@
 
 
 
+</div>

@@ -1,6 +1,6 @@
 .flex{
   display: flex;
-  justify-content: center;
+  justify-content: center!important;
   align-items: center;
 }
 
@@ -13,17 +13,10 @@
 
 
 }
-.upload {
-  float: right!important;
-  justify-content: right!important;
-  margin-right: 20rem;
 
-} */
 
-.dataform {
-  width: 18rem;
-  margin: 2rem;
 }
+
 
 
 
@@ -40,7 +33,7 @@
 /* input[type=text]:focus,input[type=email]:focus ,input[type=password]:focus  {
   border: 2px solid rgb(151, 67, 255)!important;
 } */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .flex {
     display: flex;
     flex-direction: column!important;
@@ -48,3 +41,20 @@
 }
 
 
+@media only screen and (max-width: 500px) {
+  .flex {
+    display: flex;
+    flex-direction: column!important;
+    justify-content: center!important;
+    align-items: center!important;
+  }
+}
+
+
+.dataform {
+width: 18rem;
+}
+
+.upload {
+  width: 24rem!important;
+}
