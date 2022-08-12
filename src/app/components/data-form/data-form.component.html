@@ -33,7 +33,12 @@
   <div class="formu flex justify-left">
     <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
       <div class="max-w-full w-full space-y-8">
-        <form class="mt-8 space-y-8 w-full dataform" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
+        <div class="flex-shrink-0 flex items-center" >
+          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+          <img class="hidden lg:block h-20 w-auto" src="https://seaborn.pydata.org/_images/logo-wide-lightbg.svg" alt="Workflow">
+        </div>
+        <h3 class="text-center mt-8 font-light font-mono">Data Form</h3>
+        <form class="mt-8 space-y-8 w-full dataform font-mono" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
 
 
           <div class="rounded-md  space-y-5">
@@ -79,7 +84,7 @@
             </div>
             <div>
               <label for="sizeofhouses" class="sr-only">House Size</label>
-              <input id="housesize" name="housesize" type="text" formControlName = "sizeOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Size">
+              <input id="housesize" name="housesize" type="text" formControlName = "sizeOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Size (sq. ft)">
               <!-- <div style="color: red;" class="text-danger repeat" [ngStyle]="{'display': repeatPass}">
               Password Not Match !</div>
 
@@ -89,7 +94,7 @@
           </div>
             <div>
               <label for="housecost" class="sr-only">House Cost</label>
-              <input id="housecost" name="housecost"  type="text" formControlName = "costOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Cost">
+              <input id="housecost" name="housecost"  type="text" formControlName = "costOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Cost (Lakhs)">
               <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
                 Password is required !
                </div>
@@ -110,7 +115,7 @@
 
             <div>
               <label for="rentoftenure" class="sr-only">Rent Tenure</label>
-              <input id="renttenure" name="renttenure"  type="text" formControlName = "rentTenure"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent tenure">
+              <input id="renttenure" name="renttenure"  type="text" formControlName = "rentTenure"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent tenure (Months)">
               <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
                 Password is required !
                </div>
@@ -147,18 +152,18 @@
   <div class="min-h py-12 px-4 sm:px-6 lg:px-6 ">
 
     <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10 upload">
-      <div class="text-center">
-        <h2 class="mt-2 text-3xl font-bold text-gray-900">
+      <div class="text-center mt-10">
+        <h3 class="mt-2 text-3xl font-light text-gray-900 font-mono">
           File Upload!
-        </h2>
+        </h3>
 
-    <p class="mt-2 text-sm text-gray-400">Upload File in CSV Format</p>
+    <p class="mt-2 text-sm text-gray-400 font-mono">Upload File in CSV Format</p>
 
       </div>
 
 
                       <div class="grid grid-cols-1 space-y-6">
-                                      <label class="text-sm text-center font-bold text-gray-500 tracking-wide">Attach Document</label>
+                                      <label class="text-sm text-center font-bold font-mono text-gray-500 tracking-wide">Attach Document</label>
                           <div class="flex items-center justify-center w-full">
                               <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
                                   <div class="h-full w-full text-center flex flex-col justify-center items-center  ">
@@ -168,7 +173,7 @@
                                       <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
                                       <img class="has-mask h-36 object-center" src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image">
                                       </div>
-                                      <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> files here <br /> or select a file from your computer</p>
+                                      <p class="pointer-none text-gray-500 font-mono"><span class="text-sm">Drag and drop</span> files here <br /> or select a file from your computer</p>
                                   </div>
                                   <input type="file"  #file placeholder="Choose file" (change)="uploadData(file.files)" class="hidden">
                               </label>
@@ -179,9 +184,9 @@
 
 
 
-                      <div>
-                          <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 mt-4 w-full flex justify-center bg-blue-500 text-gray-100 p-4 mt-10 rounded-full tracking-wide
-                                      font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                      <div class="flex justify-center">
+                          <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 mt-4 w-3/5 flex justify-center bg-indigo-500 text-gray-100 p-4 rounded-3xl tracking-wide
+                                      font-semibold  focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg cursor-pointer transition ease-in duration-300">
                           Upload
                       </button>
                       </div>
