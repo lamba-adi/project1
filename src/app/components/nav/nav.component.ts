@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { UserLogInComponent } from '../user-log-in/user-log-in.component';
 import Swal from 'sweetalert2';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-nav',
@@ -16,6 +17,7 @@ export class NavComponent implements OnInit {
   data=this._EmployeeService.data;
 
   dropdown:boolean=false;
+
 
 
   ngOnInit(): void {
