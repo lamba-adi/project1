@@ -7,10 +7,15 @@ import { UploadService } from 'src/app/services/upload.service';
   styleUrls: ['./compare.component.css']
 })
 export class CompareComponent implements OnInit {
-  countryArray:any;
-  cityArray:any;
+  data:any;
+  countryArray1:any;
+  cityArray1:any;
+  countryArray2:any;
+  cityArray2:any;
   selectedCountry1 :string = ''
   selectedCountry2 :string = ''
+  selectedCity1 :string = ''
+  selectedCity2 :string = ''
   constructor(private _service:UploadService) { }
 
   ngOnInit(): void {
@@ -20,10 +25,14 @@ export class CompareComponent implements OnInit {
 
   countryData1() {
     this._service.getCountryData().subscribe(response =>{
-      this.countryArray = response;
+      this.countryArray1 = response;
 
     })
-    console.log(this.countryArray);
+
+    this._service.getCompareData().subscribe(response => {
+
+    })
+    console.log(this.countryArray1);
   }
 
   getCountryData1(event:any) {
@@ -32,17 +41,17 @@ export class CompareComponent implements OnInit {
 }
 cityData1() {
   this._service.getCityData(this.selectedCountry1).subscribe(response => {
-    console.log(response);
+    this.cityArray1 = response;
 
   })
-  console.log(this.cityArray);
+  console.log(this.cityArray1);
 }
   countryData2() {
     this._service.getCountryData().subscribe(response =>{
-      this.countryArray = response;
+      this.countryArray2 = response;
 
     })
-    console.log(this.countryArray);
+    console.log(this.countryArray2);
   }
   getCountryData2(event:any) {
     this.selectedCountry2 = event.target.value;
@@ -50,15 +59,23 @@ cityData1() {
 }
 
 
+getCityData1(event:any) {
+    this.selectedCity1 = event.target.value
+}
 
+getCityData2(event:any) {
+  this.selectedCity2 = event.target.value
+}
 
   cityData2() {
     this._service.getCityData(this.selectedCountry2).subscribe(response => {
-      this.cityArray = response;
+      this.cityArray2 = response;
 
     })
-    console.log(this.cityArray);
+    console.log(this.cityArray2);
   }
+
+
 
 
 }

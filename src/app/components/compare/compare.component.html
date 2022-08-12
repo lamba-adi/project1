@@ -1,31 +1,105 @@
 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Country1</label>
 
-<select  name="countries"    (click)="getCountryData1($event)" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<select  name="countries" (click)="countryData1()"   (click)="getCountryData1($event)" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
   <option  selected>Choose a country 1</option>
-  <option *ngFor="let i of countryArray" value="{{i}}" > {{i}}</option>
+  <option *ngFor="let i of countryArray1" value="{{i}}" > {{i}}</option>
 </select>
 
 <label  for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an City 1</label>
-<select (click)="cityData1()"  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<select (click)="cityData1()" (click)="getCityData1($event)" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
   <option   selected>Choose a City 1</option>
-  <option *ngFor="let i of cityArray"  value={{i}}> {{i}}</option>
+  <option *ngFor="let i of cityArray1" value={{i}}> {{i}}</option>
 
 </select>
 
 
 
 <label for="countries"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Country2</label>
-<select  (click)="getCountryData2($event)" name id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<select  (click)="countryData2()" (click)="getCountryData2($event)" name id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
   <option  selected>Choose a country 2</option>
-  <option *ngFor="let i of countryArray" value="{{i}}" > {{i}}</option>
+  <option *ngFor="let i of countryArray2" value="{{i}}" > {{i}}</option>
 </select>
 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an City 2</label>
-<select (click)="cityData2()"  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<select (click)="cityData2()" (click)="getCityData2($event)"  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
   <option  selected>Choose a City 2</option>
 
-  <option *ngFor="let i of cityArray" value="{{i}}" > {{i}}</option>
+  <option *ngFor="let i of cityArray2" value="{{i}}" > {{i}}</option>
 </select>
 
+<div class="flex w-full pl-4 pt-8 pb-4 z-0  justify-center "  >
+  <div class="overflow-x-auto w-3/5 relative w-23\1/24 shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                  <th scope="col" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white">
 
-<button >Country</button>
-<button >City</button>
+                  </th>
+                  <th scope="col" class="py-3 px-6">
+                      Location 1
+                  </th>
+                  <th scope="col" class="py-3 px-6">
+                    Location 2
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"  >
+                  <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white">
+                      Country
+                  </th>
+                  <td class="py-4 px-6">
+                    {{selectedCountry1}}
+                  </td>
+                  <td class="py-4 px-6">
+                    {{selectedCountry2}}
+                     </td>
+              </tr>
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" >
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 bg-gray-50 whitespace-nowrap dark:text-white">
+                    City
+                </th>
+                <td class="py-4 px-6">
+                  {{selectedCity1}}
+                </td>
+                <td class="py-4 px-6">
+                  {{selectedCity2}}
+
+                </td>
+              </tr>
+                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" >
+                  <th scope="row" class="py-4 px-6 font-medium text-gray-900 bg-gray-50 whitespace-nowrap dark:text-white">
+                      Cost Of House
+                  </th>
+                  <td class="py-4 px-6">
+                      <!-- {{data[1]}} -->
+                  </td>
+                  <td class="py-4 px-6">
+                      <!-- {{data[4]}} -->
+                  </td>
+              </tr>
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" >
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 bg-gray-50 whitespace-nowrap dark:text-white">
+                    Rent
+                </th>
+                <td class="py-4 px-6">
+                    <!-- {{data[2]}} -->
+                </td>
+                <td class="py-4 px-6">
+                    <!-- {{data[5]}} -->
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" >
+              <th scope="row" class="py-4 px-6 font-medium text-gray-900 bg-gray-50 whitespace-nowrap dark:text-white">
+                  Tenure
+              </th>
+              <td class="py-4 px-6">
+                  <!-- {{data[3]}} -->
+              </td>
+              <td class="py-4 px-6">
+                  <!-- {{data[6]}} -->
+              </td>
+          </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
