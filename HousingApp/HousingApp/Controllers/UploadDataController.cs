@@ -327,7 +327,56 @@ namespace HousingApp.Controllers
         return Ok("success");
     }
 
+    [HttpGet("countryoptions")]
 
+    public IActionResult getcountries()
+    {
+      var countries = (from db in _Uploadcontext.Housing_Approved select db.Country).Distinct().OrderBy(name => name);
+        return Ok(countries);
+    }
+
+    [HttpGet("cityoptions")]
+
+    public IActionResult getcities(string country)
+    {
+      var cities = (from db in _Uploadcontext.Housing_Approved where db.Country == country select db.City).Distinct().OrderBy(name => name);
+      return Ok(cities);
+    }
+
+    [HttpGet("compare")]
+
+    public IActionResult compare(string country, string city, string country2, string city2)
+    {
+
+      var compareData = new List<string>();
+      var costOfHouseUser = (from db in _Uploadcontext.Housing_Approved where db.Country == country where db.City == city select db.CostOfHouse).Average();
+
+      compareData.Add(costOfHouseUser.ToString());
+
+      var rentUser = (from db in _Uploadcontext.Housing_Approved where db.Country == country where db.City == city select db.Rent).Average();
+
+      compareData.Add(rentUser.ToString());
+
+      var tenureUser = (from db in _Uploadcontext.Housing_Approved where db.Country == country where db.City == city select db.Tenure).Average();
+
+      compareData.Add(tenureUser.ToString());
+
+      var costOfHouse = (from db in _Uploadcontext.Housing_Approved where db.Country == country2 where db.City == city2 select db.CostOfHouse).Average();
+
+      compareData.Add(costOfHouse.ToString());
+
+      var rent = (from db in _Uploadcontext.Housing_Approved where db.Country == country where db.City == city select db.Rent).Average();
+
+      compareData.Add(rent.ToString());
+
+      var tenure = (from db in _Uploadcontext.Housing_Approved where db.Country == country where db.City == city select db.Tenure).Average();
+
+      compareData.Add(tenure.ToString());
+
+      return Ok(compareData);
+    }
   }
+
+  
 }
 
