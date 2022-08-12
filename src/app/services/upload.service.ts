@@ -48,6 +48,11 @@ export class UploadService {
       responseType:'text'
     })
  }
+
+ getDataFormCompare() {
+  return this.http.get(this.baseUrl+"UploadData/Approvedata");
+ }
+
  updateAndPost(id:string,upload:any ){
   console.log(upload);
    return this.http.put(this.baseUrl+"UploadData/updateandPost?entryid="+id, {
@@ -66,6 +71,7 @@ export class UploadService {
    {
     responseType:'text'
   })
+
 
  }
 }

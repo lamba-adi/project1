@@ -7,9 +7,9 @@
             <span class="sr-only">Open main menu</span>
             <!--
               Icon when menu is closed.
-  
+
               Heroicon name: outline/menu
-  
+
               Menu open: "hidden", Menu closed: "block"
             -->
             <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -17,9 +17,9 @@
             </svg>
             <!--
               Icon when menu is open.
-  
+
               Heroicon name: outline/x
-  
+
               Menu open: "block", Menu closed: "hidden"
             -->
             <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -36,7 +36,7 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page" *ngIf="data.auth=='Admin'" routerLink="/DashBoard">Dashboard</a>
-  
+
               <a  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" routerLink="/compare">Compare</a>
 
               <a  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" routerLink="/data-form">Upload Data</a>
@@ -52,7 +52,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
             </svg>
           </button>
-  
+
           <!-- Profile dropdown -->
           <div class="ml-3 relative">
             <div class="flex bg-blue-400 rounded-3xl ">
@@ -64,10 +64,10 @@
                 <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
               </button>
             </div>
-  
+
             <!--
               Dropdown menu, show/hide based on menu state.
-  
+
               Entering: "transition ease-out duration-100"
                 From: "transform opacity-0 scale-95"
                 To: "transform opacity-100 scale-100"
@@ -76,11 +76,11 @@
                 To: "transform opacity-0 scale-95"
             -->
             <button class="fixed z-30 inset-0 cursor-text " tabindex="-1" *ngIf="dropdown" (click)="viewdropdownmenu()"></button>
-           
+
 
             <div class="origin-top-right z-40 absolute transform right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" *ngIf="dropdown && data!=null" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
               <!-- Active: "bg-gray-100", Not Active: "" -->
-              <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 cursor-pointer" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+              <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 cursor-pointer" role="menuitem" tabindex="-1" id="user-menu-item-0" data-bs-toggle="modal" data-bs-target="#exampleModal">Your Profile</a>
               <a  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 cursor-pointer" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
               <a  (click)="logout()" routerLink="/DashBoard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 cursor-pointer" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
             </div>
@@ -93,11 +93,76 @@
     <div class="sm:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
+        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Compare</a>
+
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Compare</a>
+
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Upload Data</a>
+
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page" routerLink="/DashBoard">Dashboard</a>
-  
+
         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" routerLink="/compare">Compare</a>
-  
+
         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" routerLink="/data-form">Upload Data</a>
+
       </div>
     </div>
   </nav>
+
+  <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog relative w-auto pointer-events-none">
+    <div
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+      <div
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLabel">Modal title</h5>
+        <button type="button"
+          class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4">
+        Modal body text goes here.
+      </div>
+      <div
+        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+        <button type="button" class="px-6
+          py-2.5
+          bg-purple-600
+          text-white
+          font-medium
+          text-xs
+          leading-tight
+          uppercase
+          rounded
+          shadow-md
+          hover:bg-purple-700 hover:shadow-lg
+          focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0
+          active:bg-purple-800 active:shadow-lg
+          transition
+          duration-150
+          ease-in-out" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="px-6
+      py-2.5
+      bg-blue-600
+      text-white
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-blue-700 hover:shadow-lg
+      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-blue-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out
+      ml-1">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
