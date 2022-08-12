@@ -29,9 +29,6 @@ export class CompareComponent implements OnInit {
 
     })
 
-    this._service.getCompareData().subscribe(response => {
-
-    })
     console.log(this.countryArray1);
   }
 
@@ -76,6 +73,15 @@ getCityData2(event:any) {
   }
 
 
+getCompareData(country1:string, city1:string, country2:string, city2:string){
+  this._service.getCompareData(country1, city1, country2, city2).subscribe({
+    next: (response)=>{
+      this.data=response
+      console.log(response)
+    }
+    
 
+  })
+}
 
 }
