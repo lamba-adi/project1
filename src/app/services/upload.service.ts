@@ -74,4 +74,18 @@ export class UploadService {
 
 
  }
+// compare service for comparing data
+ getCountryData() {
+    return this.http.get(this.baseUrl + "UploadData/countryoptions");
+
+ }
+
+ getCityData(country:string) {
+  return this.http.get(this.baseUrl + "UploadData/cityoptions?country=" + country);
+ }
+
+ getCompareData() {
+  return this.http.get(this.baseUrl + "UploadData/compare");
+ }
+
 }

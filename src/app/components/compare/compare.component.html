@@ -1,32 +1,31 @@
 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Country1</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option selected>Choose a country</option>
-  <option value="US">United States</option>
-  <option value="CA">Canada</option>
-  <option value="FR">France</option>
-  <option value="DE">Germany</option>
+
+<select  name="countries"    (click)="getCountryData1($event)" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option  selected>Choose a country 1</option>
+  <option *ngFor="let i of countryArray" value="{{i}}" > {{i}}</option>
 </select>
-<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Area1</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option selected>Choose a country</option>
-  <option value="US">United States</option>
-  <option value="CA">Canada</option>
-  <option value="FR">France</option>
-  <option value="DE">Germany</option>
+
+<label  for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an City 1</label>
+<select (click)="cityData1()"  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option   selected>Choose a City 1</option>
+  <option *ngFor="let i of cityArray"  value={{i}}> {{i}}</option>
+
 </select>
-<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Country2</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option selected>Choose a country</option>
-  <option value="US">United States</option>
-  <option value="CA">Canada</option>
-  <option value="FR">France</option>
-  <option value="DE">Germany</option>
+
+
+
+<label for="countries"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Country2</label>
+<select  (click)="getCountryData2($event)" name id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option  selected>Choose a country 2</option>
+  <option *ngFor="let i of countryArray" value="{{i}}" > {{i}}</option>
 </select>
-<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Area2</label>
-<select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-  <option selected>Choose a country</option>
-  <option value="US">United States</option>
-  <option value="CA">Canada</option>
-  <option value="FR">France</option>
-  <option value="DE">Germany</option>
+<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an City 2</label>
+<select (click)="cityData2()"  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option  selected>Choose a City 2</option>
+
+  <option *ngFor="let i of cityArray" value="{{i}}" > {{i}}</option>
 </select>
+
+
+<button >Country</button>
+<button >City</button>
