@@ -58,7 +58,7 @@
                     </td>
                 </tr>
                 <tr *ngIf="data.length==0">
-                    <td colspan="9" class="h4 py-8 pl-80">
+                    <td colspan="9" class="h4 py-8 pl-80 justify-center items-center">
                         You are Up-To-Date with Approve Requests
                     </td>
                 </tr>
@@ -75,21 +75,21 @@
         X
     </button>
     <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
-        <div class="max-w-full w-full space-y-6">      
-          <h4 class="text-center">Edit Form</h4>    
+        <div class="max-w-full w-full space-y-6">
+          <h4 class="text-center">Edit Form</h4>
           <form class="mt-8 ml-8 space-y-6 dataform justify-center" [formGroup]="entryform" (ngSubmit) = "onEditSubmit()" method = "POST" >
-  
+
             <div class=" rounded-md  space-y-6  overflow-auto">
               <div class=" flex pr-40">
                 <label  for="Country" class="pt-1 pr-11">Entry ID</label>&nbsp;
                 <input  id="password" formControlName = "entryID" type="text"  readonly  class="appearance-none w-28 relative block  px-3 py-2 border bg-slate-300 cursor-default border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
-  
+
               </div>
               <div class="flex ">
                 <div class="flex pr-48">
                   <label  for="Country" class="pt-1 pr-12">Country</label>
                   <input  id="password" formControlName = "country" type="text"  class="appearance-none w-48 relative block px-2 py- border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
-    
+
                 </div>
                 <div class="flex">
                   <label for="Area" class="pt-1 pr-14 ">City</label>&nbsp;
@@ -100,7 +100,7 @@
                 <div class="flex pr-48">
                   <label for="typeofHouses" class="pt-1 pr-4">House Type</label>&nbsp;
                   <input id="typeofhouses" type="text" formControlName = "typeOfHouse" autocomplete="email" required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Type">
-    
+
                 </div>
                 <div class="flex">
                   <label for="sizeofhouses" class="pt-1 pr-4">House Size</label>&nbsp;
@@ -116,13 +116,13 @@
                   <label for="rent" class="pt-1 pr-16">Rent</label>&nbsp;
                   <input id="rent" type="text" formControlName = "rent"  required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent">
                 </div>
-    
+
                 <div class="flex">
                   <label for="rentoftenure" class="pt-1 pl-1 pr-2">Rent Tenure</label>&nbsp;
                   <input id="renttenure" type="text" formControlName = "tenure"  required class="appearance-none relative block w-48 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent tenure">
                 </div>
               </div>
-            
+
             </div>
             <div class="relative w-full">
               <button    type="submit" class="group right-0  w-80  flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -134,10 +134,10 @@
                 </span>
                 Update & Apprrove
               </button>
-  
-  
-  
-            
+
+
+
+
             </div>
           </form>
         </div>
