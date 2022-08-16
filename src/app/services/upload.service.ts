@@ -90,5 +90,13 @@ export class UploadService {
 
  }
 
+ getSingleEmpApprovalData(id:string){
+  return this.http.get(this.baseUrl+"UploadData/approvalempdata?empID="+id)
+ }
+
+ getSingleEmpApprovedData(id:string){
+  return this.http.get(this.baseUrl+"UploadData/approvedempdata?empID="+id)
+ }
+
 
 }

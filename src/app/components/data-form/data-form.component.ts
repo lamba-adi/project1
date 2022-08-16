@@ -32,7 +32,17 @@ export class DataFormComponent implements OnInit {
 
   user=this._employeeService.data;
 
+  approvedata:any;
+
+  approveddata:any;
+
+  approvedatalength:number=0;
+  
+  approveddatalength:number=0;
+
   ngOnInit(): void {
+    console.log(this.user)
+    this.getsingleuserdata()
   }
 
   public uploadData = (files:any) =>{
@@ -119,7 +129,7 @@ export class DataFormComponent implements OnInit {
     return this.HousingForm.get("rent") as FormControl;
   }
   get Tenure() : FormControl{
-    return this.HousingForm.get("renttenure") as FormControl;
+    return this.HousingForm.get("rentTenure") as FormControl;
   }
 
 
@@ -146,6 +156,23 @@ export class DataFormComponent implements OnInit {
       }
     })
     this.HousingForm.reset()
+
+  }
+
+
+  getsingleuserdata(){
+    this._uploadService.getSingleEmpApprovalData(this.user.id).subscribe(response =>{
+      this.approvedata=response;
+      this.approveddatalength=Object.keys(this.approvedata).length;
+      
+    });
+    
+
+    this._uploadService.getSingleEmpApprovedData(this.user.id).subscribe(response =>{
+      this.approveddata=response;
+      this.approveddatalength=Object.keys(this.approveddata).length;
+      console.log(this.approveddata)
+    });
 
   }
 

@@ -144,6 +144,21 @@ namespace HousingApp.Controllers
       return await _Uploadcontext.Housing_Approval.ToListAsync();
     }
 
+    [HttpGet("approvalempdata")]
+    public async Task<IEnumerable<housingApprovalModel>> GetsingleempDataApproval(string empID)
+    {
+      var data = await _Uploadcontext.Housing_Approval.Where(datadb => datadb.EmpID == empID).ToListAsync();
+
+      return data;
+    }
+
+    [HttpGet("approvedempdata")]
+    public async Task<IEnumerable<housingApprovedModel>> GetsingleempDataApproved(string empID)
+    {
+      var data = await _Uploadcontext.Housing_Approved.Where(datadb => datadb.EmpID == empID).ToListAsync();
+
+      return data;
+    }
 
     [HttpGet("singledata")]
 

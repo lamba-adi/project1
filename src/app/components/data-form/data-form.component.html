@@ -154,11 +154,13 @@
   </div>
 </div>
 
-<!-- arppoved data for user -->
+<!-- for arppoval data for user -->
 
-<div class="flex pl-4 pt-8 pb-4 z-0  justify-center font-mono" *ngIf="user.auth=='Admin'">
-  <div class="overflow-x-auto relative w-23\1/24 shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<div class="flex-col pl-4 pt-8 pb-4 z-0  justify-center font-mono text-center" *ngIf="user.auth=='User' && approvedatalength>0">
+  <span class="h5 py-3">Your Uploaded Data For Approval</span>
+  <div class="flex justify-center">
+  <div class="flex justify-center overflow-x-auto relative w-5/6 shadow-md sm:rounded-lg">
+      <table class=" w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-grey-700 dark:text-gray-400">
               <tr>
                   <th scope="col" class="py-3 px-6">
@@ -186,7 +188,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let item of data">
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let item of approvedata">
                   <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {{item.entryID}}
                   </th>
@@ -209,13 +211,84 @@
                       ${{item.rent}}/{{item.tenure}}
                   </td>
 
-              </tr>
-              <tr *ngIf="data.length==0" class="-center">
+              </tr><!--
+              <tr *ngIf="approvedata.length==0" class="-center">
                   <td colspan="9" class="h4 pl-52 py-8 justify-center items-center">
-                      You are Up-To-Date with Approve Requests
+                      No Data Uploaded
                   </td>
-              </tr>
+              </tr>-->
           </tbody>
       </table>
   </div>
+  </div>
+</div>
+
+
+<!-- arppoved data for user -->
+
+<div class="flex-col pl-4 pt-8 pb-4 z-0  justify-center font-mono text-center" *ngIf="user.auth=='User' && approveddatalength>0">
+  <span class="h5 py-3">Your Approved Data</span>
+    <div class="flex justify-center">
+    <div class="flex justify-center overflow-x-auto relative w-5/6 shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-grey-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6">
+                        EntryID
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Employee ID
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Organisation
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Location
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Type of House
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Cost of House
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Rent/Tenure
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let item of approveddata ">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{item.entryID}}
+                    </th>
+                    <td class="py-4 px-6">
+                        {{item.empID}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{item.organisation}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{item.city}},{{item.country}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{item.typeOfHouse}}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{item.costOfHouse}}
+                    </td>
+                    <td class="py-4 px-6">
+                        ${{item.rent}}/{{item.tenure}}
+                    </td>
+
+                </tr><!--
+                <tr *ngIf="approveddata.length==0" class="-center">
+                    <td colspan="9" class="h4 pl-52 py-8 justify-center items-center">
+                        No Data Uploaded Successful
+                    </td>
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    </div>
 </div>
