@@ -19,6 +19,6 @@ button{
 }
 
 .con {
-  width: 35rem!important;
+  width: 35rem;
+  border-radius: 4px;
 }
-

@@ -77,9 +77,9 @@ onSubmitLoginForm() {
 }
 
 
-get f(){
-    return this.adminForm.controls;
-  }
+get Email() : FormControl{
+  return this.adminForm.get("email") as FormControl;
+}
 
   ngOnInit(): void {
     this._EmployeeServices.loadCurrentAdmin();
