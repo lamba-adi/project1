@@ -1,0 +1,22 @@
+select {
+  margin-top: -10px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  width: 20rem!important;
+}
+label{
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+/* .seaborn{
+  margin-top: -0.8rem;
+} */
+*{
+  font-family: monospace;
+}
+button{
+  font-size: 0.9rem;
+}
+::-webkit-scrollbar {
+  display: none;
+}
