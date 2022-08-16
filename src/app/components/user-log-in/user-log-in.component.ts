@@ -87,10 +87,9 @@ onSubmitLoginForm() {
     }
   )
 }
-
-get f(){
-    return this.loginForm.controls;
-  }
+get Email() : FormControl{
+  return this.loginForm.get("email") as FormControl;
+}
 
 
   ngOnInit(): void {

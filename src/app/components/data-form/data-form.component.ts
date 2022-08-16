@@ -57,7 +57,7 @@ export class DataFormComponent implements OnInit {
             text: 'Uploaded Successfully',
             icon: 'success',
             // confirmButtonText: 'Cool'
-            position : 'top',
+            position : 'top-end',
             width : '200',
             showConfirmButton : false,
 
@@ -109,6 +109,19 @@ export class DataFormComponent implements OnInit {
     ]).subscribe(res =>{
       if(res == "Success") {
         // this.displayMsg = "Account Created Successfully!";
+        Swal.fire({
+          // title: 'Success!',
+          text: 'Form Sumbitted Successfully',
+          icon: 'success',
+          // confirmButtonText: 'Cool'
+          position : 'top-end',
+          width : '200',
+          showConfirmButton : false,
+
+          // height : "1rem",
+          timer : 1500
+          // timer : 1200
+        })
 
         console.log(res);
         // console.log(res)

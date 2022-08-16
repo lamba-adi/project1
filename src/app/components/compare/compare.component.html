@@ -1,27 +1,26 @@
-<div class="flex flex-col justify-center items-center mt-2">
-<div class="flex flex-col w-full items-center p-6">
+<div class="flex flex-col  items-center p-6">
   <!-- <div class="flex-shrink-0 flex items-center" > -->
 
-  <div class="p-8 w-1/2 bg-gray-200  space-y-6">
+  <div class="p-8  bg-gray-200  space-y-8 con">
     <div class="flex items-center justify-center seaborn ">
       <img class="block lg:hidden h-8 w-auto mb-4" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
 
-      <img class="hidden lg:block h-20 w-auto mb-4" src="https://seaborn.pydata.org/_images/logo-wide-lightbg.svg" alt="Workflow">
+      <img class="hidden lg:block h-20 w-auto mb-2" src="https://seaborn.pydata.org/_images/logo-wide-lightbg.svg" alt="Workflow">
 
 
     </div>
 
   <!-- </div> -->
-    <div class="flex justify-between">
-    <label for="countries" class="block mb-2 text-sm  font-medium text-gray-900 dark:text-gray-400">Select Country 1</label>
+    <div class="flex space-x-8 justify-center items-center">
+    <label for="countries" class="block mb-2  text-sm  font-medium text-gray-900 dark:text-gray-400">Select Country 1</label>
 
     <select  name="countries" (click)="countryData1()"   (click)="getCountryData1($event)" id="countries" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option  selected>Choose a country 1</option>
       <option *ngFor="let i of countryArray1" value="{{i}}" > {{i}}</option>
     </select>
     </div>
-    <div class="flex justify-between">
-    <label  for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select City 1</label>
+    <div class="flex space-x-8 justify-center items-center">
+    <label  for="city" class="block mb-2 mr-6 text-sm font-medium text-gray-900 dark:text-gray-400">Select City 1</label>
     <select (click)="cityData1()" (click)="getCityData1($event)" id="countries" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option   selected>Choose a City 1</option>
       <option *ngFor="let i of cityArray1" value={{i}}> {{i}}</option>
@@ -29,7 +28,7 @@
     </select>
     </div>
 
-    <div class="flex justify-between">
+    <div class="flex space-x-8 justify-center items-center">
     <label for="countries"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select Country 2</label>
     <select  (click)="countryData2()" (click)="getCountryData2($event)" name id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option  selected>Choose a country 2</option>
@@ -38,21 +37,20 @@
 
     </div>
 
-    <div class="flex justify-between">
-    <label for="countries" class="block  text-sm font-medium text-gray-900 dark:text-gray-400">Select City 2</label>
+    <div class="flex space-x-8 justify-center items-center">
+    <label for="countries" class="block mr-6 mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select City 2</label>
     <select (click)="cityData2()" (click)="getCityData2($event)"  id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option  selected>Choose a City 2</option>
 
       <option *ngFor="let i of cityArray2" value="{{i}}" > {{i}}</option>
     </select>
     </div>
-    <div>
-      <button (click)="getCompareData(selectedCountry1, selectedCity1, selectedCountry2,selectedCity2)" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-3 text-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">compare</button>
+    <div class="mb-4">
+      <button (click)="getCompareData(selectedCountry1, selectedCity1, selectedCountry2,selectedCity2)" class="text-white  ml-6 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-3 text-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">compare</button>
     </div>
   </div>
 </div>
 
-</div>
 
 
 <div class="flex w-full pl-4 pt-8 pb-4 z-0  justify-center " *ngIf="data!=null" >

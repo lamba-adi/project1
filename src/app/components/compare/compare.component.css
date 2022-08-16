@@ -17,6 +17,8 @@ label{
 button{
   font-size: 0.9rem;
 }
-::-webkit-scrollbar {
-  display: none;
+
+.con {
+  width: 35rem!important;
 }
+
