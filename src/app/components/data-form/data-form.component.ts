@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {HttpClient, HttpEventType, HttpErrorResponse} from '@angular/common/http';
 import { UploadService } from 'src/app/services/upload.service';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup, Validators } from '@angular/forms';
 // import { FileUploadService } from './file-upload.service';
 // import {FileUploadModule} from 'primeng/fileupload';
 import {HttpClientModule} from '@angular/common/http';
@@ -57,7 +57,7 @@ export class DataFormComponent implements OnInit {
             text: 'Uploaded Successfully',
             icon: 'success',
             // confirmButtonText: 'Cool'
-            position : 'top-end',
+            position : 'top',
             width : '200',
             showConfirmButton : false,
 
@@ -85,14 +85,43 @@ export class DataFormComponent implements OnInit {
   HousingForm = new FormGroup({
     // employeeId : new FormControl('', [Validators.required]),
     Empid:new FormControl(''),
-    country : new FormControl(''),
-    city : new FormControl(''),
-    typeOfHouse : new FormControl(''),
-    sizeOfHouse : new FormControl(''),
-    costOfHouse  : new FormControl(''),
-    rent  : new FormControl(''),
-    rentTenure  : new FormControl('')
+    country : new FormControl('',
+    [Validators.required,
+      Validators.minLength(3)]),
+    city : new FormControl('',
+    [Validators.required,
+      Validators.minLength(3)]),
+    typeOfHouse : new FormControl('',
+    Validators.required),
+    sizeOfHouse : new FormControl('', Validators.required),
+    costOfHouse  : new FormControl('',Validators.required),
+    rent  : new FormControl('', Validators.required),
+    rentTenure  : new FormControl('', Validators.required)
   });
+
+  //validators
+  get Country() : FormControl{
+    return this.HousingForm.get("country") as FormControl;
+  }
+  get City() : FormControl{
+    return this.HousingForm.get("city") as FormControl;
+  }
+  get TypeOFHouse() : FormControl{
+    return this.HousingForm.get("typeOfHouse") as FormControl;
+  }
+  get SizeOfHouse() : FormControl{
+    return this.HousingForm.get("sizeOfHouse") as FormControl;
+  }
+  get CostOfHouse() : FormControl{
+    return this.HousingForm.get("costOfHouse") as FormControl;
+  }
+  get Rent() : FormControl{
+    return this.HousingForm.get("rent") as FormControl;
+  }
+  get Tenure() : FormControl{
+    return this.HousingForm.get("renttenure") as FormControl;
+  }
+
 
   onSubmitHousingForm() {
     console.log(this.HousingForm.value)
@@ -109,19 +138,6 @@ export class DataFormComponent implements OnInit {
     ]).subscribe(res =>{
       if(res == "Success") {
         // this.displayMsg = "Account Created Successfully!";
-        Swal.fire({
-          // title: 'Success!',
-          text: 'Form Sumbitted Successfully',
-          icon: 'success',
-          // confirmButtonText: 'Cool'
-          position : 'top-end',
-          width : '200',
-          showConfirmButton : false,
-
-          // height : "1rem",
-          timer : 1500
-          // timer : 1200
-        })
 
         console.log(res);
         // console.log(res)

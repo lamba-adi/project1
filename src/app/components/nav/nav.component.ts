@@ -18,7 +18,7 @@ export class NavComponent implements OnInit {
 
   dropdown:boolean=false;
 
-
+  mobilemenu=true;
 
   ngOnInit(): void {
     if(localStorage.getItem("admin_access_token")!=null)

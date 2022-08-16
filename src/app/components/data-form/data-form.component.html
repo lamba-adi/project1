@@ -1,201 +1,151 @@
- <!-- <p>data-form works!</p>
-<div class="row" style="margin-bottom:15px;">
-  <div class="col-md-3">
-    <input type="file" #file placeholder="Choose file" (change)="uploadData(file.files)" style="display:none;">
-    <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+<div class="flex-col justify-center min-h-full">
+  <div class="flex-shrink-0 flex items-center py-8 lg:pt-12" >
+    <img class="h-20 w-auto" src="https://seaborn.pydata.org/_images/logo-wide-lightbg.svg" alt="Workflow">
   </div>
-  <div class="col-md-4">
-    <span class="upload" *ngIf="progress > 0">
-      {{progress}}%
-    </span>
-    <span class="upload" *ngIf="message">
-      {{message}}
-    </span>
-  </div>
-</div>  -->
+  <div class="flex flex-row justify-center  sm:pb-12 lg:20">
+    <div class="formu flex justify-left sm:pb-12 lg:pb-0 pt-4 ">
+      <div class="min-h-full flex items-center justify-center  px-4 sm:px-8 lg:px-8">
+        <div class="max-w-full w-full space-y-8">
 
-<!-- <div class="row">
-  <div class="offset-md-5 col-md-2">
-    <button type="button" class="btn btn-primary" (click)="onCreate()">Create </button>
-  </div>
-</div> -->
+          <h3 class="text-center  font-light font-mono">Data Form</h3>
+          <form class="mt-8 space-y-8 w-full dataform font-mono" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
 
 
+            <div class="rounded-md  space-y-5">
+              <div class="">
+                <!-- <label  for="Country" >Country</label> -->
+                <input  id="password" name="password" formControlName = "country" type="text"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
 
-
-
-<!-- style="background-image: url(https://images.unsplash.com/photo-1621243804936-775306a8f2e3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80); -->
-
-
-
-
-<div class="flex flex-row justify-center">
-  <div class="formu flex justify-left">
-    <div class="min-h-full flex items-center justify-center  py-6 px-4 sm:px-8 lg:px-12">
-      <div class="max-w-full w-full space-y-8">
-        <div class="flex-shrink-0 flex items-center" >
-          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-          <img class="hidden lg:block h-20 w-auto" src="https://seaborn.pydata.org/_images/logo-wide-lightbg.svg" alt="Workflow">
-        </div>
-        <h3 class="text-center mt-8 font-light font-mono">Data Form</h3>
-        <form class="mt-8 space-y-8 w-full dataform font-mono" [formGroup]="HousingForm" (ngSubmit) = "onSubmitHousingForm()" method = "POST" >
-
-
-          <div class="rounded-md  space-y-5">
-            <div class="">
-              <!-- <label  for="Country" >Country</label> -->
-              <input  id="password" name="password" formControlName = "country" type="text"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Country">
-
-                <!-- <div class="text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">
-                 First Name is required !
+                <div class="text-danger" *ngIf="Country.errors?.['required'] && (Country.touched || Country.dirty)">
+                  Country Name is required !
                 </div>
-                <div class="text-danger" *ngIf="FirstName.errors?.['minLength'] && (FirstName.touched || FirstName.dirty)">
-                  First Name too Short !
-                 </div>
-                 <div class="text-danger" *ngIf="FirstName.errors?.['pattern'] && (FirstName.touched || FirstName.dirty)">
-                  First Name Should start with Alphabet !
-                 </div> -->
+                <div class="text-danger" *ngIf="Country.errors?.['minLength'] && (Country.touched || Country.dirty)">
+                  Country Name too Short !
+                  </div>
+
+              </div>
+              <div>
+                <label for="city" class="sr-only">City</label>
+                <input id="city" name="text" type="text" formControlName = "city"   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="City">
+
+                <div class="text-danger" *ngIf="City.errors?.['required'] && (City.touched || City.dirty)">
+                  City Name is required !
+                </div>
+                <div class="text-danger" *ngIf="City.errors?.['minLength'] && (City.touched || City.dirty)">
+                  City Name too Short !
+                </div>
+              </div>
+              <div>
+                <label for="typeofHouses" class="sr-only">House Type</label>
+                <input id="typeofhouses" name="email" type="text" formControlName = "typeOfHouse" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Type">
+                <div class="text-danger" *ngIf="TypeOFHouse.errors?.['required'] && (TypeOFHouse.touched || TypeOFHouse.dirty)">
+                  House Type is required !
+                </div>
+
+              </div>
+              <div>
+                <label for="sizeofhouses" class="sr-only">House Size</label>
+                <span class="z-40 h-full leading-snug font-normal absolute text-center text-blue-300 bg-transparent rounded text-sm items-center justify-center lg:left-96 w-12 lg:pl-32 py-2 sm:pl-60">
+                  sq.ft
+                </span>
+                <input id="housesize" name="housesize" type="text" formControlName = "sizeOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Size">
+                <div class="text-danger" *ngIf="SizeOfHouse.errors?.['required'] && (SizeOfHouse.touched || SizeOfHouse.dirty)">
+                  House Size is required !
+                </div>
 
             </div>
+              <div>
+                <label for="housecost" class="sr-only">House Cost</label>
+                <span class="z-40 h-full leading-snug font-normal absolute text-center text-blue-300 bg-transparent rounded text-base items-center justify-center w-8 pl-0 py-2">
+                  &#8377;
+                </span>
+                <input id="housecost" name="housecost"  type="text" formControlName = "costOfHouse"  required class="appearance-none rounded-none relative block w-full px-6 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Cost (Lakhs)">
+                <div class="text-danger" *ngIf="CostOfHouse.errors?.['required'] && (CostOfHouse.touched || CostOfHouse.dirty)">
+                  House Cost is required !
+                </div>
+              </div>
+              <div>
+                <label for="rent" class="sr-only">Rent</label>
+                <span class="z-40 h-full leading-snug font-normal absolute text-center text-blue-300 bg-transparent rounded text-base items-center justify-center w-8 pl-0 py-2">
+                  &#8377;
+                </span>
+                <input id="rent" name="rent"  type="text" formControlName = "rent"  required class="appearance-none rounded-none relative block w-full px-6 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent">
+                <div class="text-danger" *ngIf="Rent.errors?.['required'] && (Rent.touched || Rent.dirty)">
+                  Rent Amount is required !
+                </div>
+              </div>  
+
+              <div>
+                <label for="rentoftenure" class="sr-only">Rent Tenure</label>
+                <span class="z-40 h-full leading-snug font-normal absolute text-center text-blue-300 bg-transparent rounded text-sm items-center justify-center lg:left-96 w-8 lg:pl-32 py-2 sm:pl-60">
+                  Months
+                </span>
+                <input id="renttenure" name="renttenure"  type="text" formControlName = "rentTenure"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent tenure">
+                <div class="text-danger" *ngIf="Tenure.errors?.['required'] && (Tenure.touched || Tenure.dirty)">
+                  Rent Tenure is required !
+                </div>
+              </div>
+              <div class="text-gray-600 text-right text-sm">*Values should be in &#8377;</div>
+
+
             <div>
-              <label for="city" class="sr-only">City</label>
-              <input id="city" name="text" type="text" formControlName = "city"   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="City">
-              <!-- <div class="text-danger" *ngIf="LastName.errors?.['required']
-              && (LastName.touched || LastName.dirty)">
-               Last Name is required !
-              </div> -->
-              <!-- <div class="text-danger" *ngIf="LastName.errors?.['minLength'] && (LastName.touched || LastName.dirty)">
-                Last Name too Short !
-               </div>
-               <div class="text-danger" *ngIf="LastName.errors?.['pattern'] && (LastName.touched || LastName.dirty)">
-                Last Name Should start with Alphabet !
-               </div> -->
+              <button    type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                  <!-- Heroicon name: solid/lock-closed -->
+                  <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <!-- <a routerLink="/LogIn"></a> -->
+                Submit
+              </button>
+
+
+
             </div>
-            <div>
-              <label for="typeofHouses" class="sr-only">House Type</label>
-              <input id="typeofhouses" name="email" type="text" formControlName = "typeOfHouse" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Type">
-              <!-- <div class="text-danger" *ngIf="Email.errors?.['required']  && (Email.dirty || Email.touched)">
-                Email is required !
-               </div>
-               <div class="text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )">
-                Email is Invalid !
-                </div> -->
-
             </div>
-            <div>
-              <label for="sizeofhouses" class="sr-only">House Size</label>
-              <input id="housesize" name="housesize" type="text" formControlName = "sizeOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Size (sq. ft)">
-              <!-- <div style="color: red;" class="text-danger repeat" [ngStyle]="{'display': repeatPass}">
-              Password Not Match !</div>
+          </form>
+        </div>
+      </div>
+    </div>
 
 
-            </div> -->
 
-          </div>
-            <div>
-              <label for="housecost" class="sr-only">House Cost</label>
-              <input id="housecost" name="housecost"  type="text" formControlName = "costOfHouse"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="House Cost (Lakhs)">
-              <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
-                Password is required !
-               </div>
-               <div class="text-danger" *ngIf="PWD.errors?.['minLength'] || PWD.errors?.['maxLength'] && (PWD.dirty || PWD.touched )">
-                Password Should be at least 6 and  at the max 15 characters long!
-                </div> -->
+    <div class="px-4 sm:px-6 lg:px-6 ">
+
+      <div class="sm:max-w-lg w-full px-10 bg-white rounded-xl z-10 upload text-center">
+        <div class="text-center">
+          <h3 class=" font-light text-gray-900 font-mono">
+            File Upload
+          </h3>
+        </div>
+<br>
+<br>
+        <p class="mt-2 text-sm text-gray-400 font-mono">Upload File in CSV Format</p>
+        <div class="grid grid-cols-1 space-y-6">
+          <label class="text-sm text-center font-bold font-mono text-gray-500 tracking-wide">Attach Document</label>
+            <div class="flex items-center justify-center w-full">
+              <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
+                <div class="h-full w-full text-center flex flex-col justify-center items-center  ">
+                  -<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                  <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
+                    <img class="has-mask h-36 object-center" src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image">
+                  </div>
+                  <p class="pointer-none text-gray-500 font-mono"><span class="text-sm">Drag and drop</span> files here <br /> or select a file from your computer</p>
+                </div>
+                <input type="file"  #file placeholder="Choose file" (change)="uploadData(file.files)" class="hidden">
+              </label>
             </div>
-            <div>
-              <label for="rent" class="sr-only">Rent</label>
-              <input id="rent" name="rent"  type="text" formControlName = "rent"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent">
-              <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
-                Password is required !
-               </div>
-               <div class="text-danger" *ngIf="PWD.errors?.['minLength'] || PWD.errors?.['maxLength'] && (PWD.dirty || PWD.touched )">
-                Password Should be at least 6 and  at the max 15 characters long!
-                </div> -->
-            </div>
-
-            <div>
-              <label for="rentoftenure" class="sr-only">Rent Tenure</label>
-              <input id="renttenure" name="renttenure"  type="text" formControlName = "rentTenure"  required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Rent tenure (Months)">
-              <!-- <div class="text-danger" *ngIf="PWD.errors?.['required']  && (PWD.dirty || PWD.touched)">
-                Password is required !
-               </div>
-               <div class="text-danger" *ngIf="PWD.errors?.['minLength'] || PWD.errors?.['maxLength'] && (PWD.dirty || PWD.touched )">
-                Password Should be at least 6 and  at the max 15 characters long!
-                </div> -->
-            </div>
-
-
-          <div>
-            <button    type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                <!-- Heroicon name: solid/lock-closed -->
-                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-                </svg>
-              </span>
-              <!-- <a routerLink="/LogIn"></a> -->
-              Submit
-            </button>
-
-
-
-          </div>
-          </div>
-        </form>
+        </div>
+        <div class="flex justify-center">
+          <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 mt-4 w-3/5 flex justify-center bg-indigo-500 text-gray-100 p-4 rounded-3xl tracking-wide
+            font-semibold  focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg cursor-pointer transition ease-in duration-300">
+            Upload
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
-
-  <div class="min-h py-12 px-4 sm:px-6 lg:px-6 mt-6  ">
-
-  <div class="min-h py-12 px-4 sm:px-6 lg:px-6 ">
-
-    <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10 upload">
-      <div class="text-center mt-10">
-        <h3 class="mt-2 text-3xl font-light text-gray-900 font-mono">
-          File Upload!
-        </h3>
-
-    <p class="mt-2 text-sm text-gray-400 font-mono">Upload File in CSV Format</p>
-
-      </div>
-
-
-                      <div class="grid grid-cols-1 space-y-6">
-                                      <label class="text-sm text-center font-bold font-mono text-gray-500 tracking-wide">Attach Document</label>
-                          <div class="flex items-center justify-center w-full">
-                              <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
-                                  <div class="h-full w-full text-center flex flex-col justify-center items-center  ">
-                                      -<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                      </svg>
-                                      <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
-                                      <img class="has-mask h-36 object-center" src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg" alt="freepik image">
-                                      </div>
-                                      <p class="pointer-none text-gray-500 font-mono"><span class="text-sm">Drag and drop</span> files here <br /> or select a file from your computer</p>
-                                  </div>
-                                  <input type="file"  #file placeholder="Choose file" (change)="uploadData(file.files)" class="hidden">
-                              </label>
-                          </div>
-                      </div>
-
-
-
-
-
-                      <div class="flex justify-center">
-                          <button styles="width: 22rem;"  (click)="file.click()" type="button" class="my-3 mt-4 w-3/5 flex justify-center bg-indigo-500 text-gray-100 p-4 rounded-3xl tracking-wide
-                                      font-semibold  focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg cursor-pointer transition ease-in duration-300">
-                          Upload
-                      </button>
-                      </div>
-
-    </div>
-    </div>
-
-</div>
-
-
-
 </div>
