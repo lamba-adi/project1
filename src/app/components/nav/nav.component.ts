@@ -38,7 +38,7 @@ export class NavComponent implements OnInit {
       icon: 'success',
       // confirmButtonText: 'Cool'
       width : '200',
-      position : 'top-end',
+      position : 'top',
 
       showConfirmButton : false,
       timer : 2000

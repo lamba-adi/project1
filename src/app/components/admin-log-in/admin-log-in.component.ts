@@ -39,7 +39,7 @@ onSubmitLoginForm() {
         icon: 'error',
         // confirmButtonText: 'Cool'
         showConfirmButton : false,
-        position:'top-end',
+        position:'top',
         width : 200,
         timer : 1500
         // timer : 1200

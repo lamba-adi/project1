@@ -81,7 +81,7 @@ export class DataFormComponent implements OnInit {
             // title: 'Error!',
             text: 'Your File is Uploaded Successfully',
             icon: 'success',
-            position : 'center',
+            position : 'bottom-end',
             width : '400',
             showConfirmButton : false,
             timer : 2000

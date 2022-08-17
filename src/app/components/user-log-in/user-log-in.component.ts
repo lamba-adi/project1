@@ -65,7 +65,7 @@ onSubmitLoginForm() {
           text: 'Login Successfully',
           icon: 'success',
           // confirmButtonText: 'Cool'
-          position : 'top-end',
+          position : 'top',
           width : '200',
           showConfirmButton : false,
 
