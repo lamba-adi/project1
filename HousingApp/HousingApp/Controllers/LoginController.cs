@@ -98,7 +98,7 @@ namespace HousingApp.Controllers
       var useravailable = _empContext.admindata.Where(admindb => admindb.EmpEmail == admin.EmpEmail && admindb.EmpPassword == admin.EmpPassword).FirstOrDefault();
       if (useravailable != null)
       {
-        return Ok(new JWTService(_config).generateAdminToken("1", "Admin", "lname", useravailable.EmpEmail, "Admin"));
+        return Ok(new JWTService(_config).generateAdminToken("1", "Admin", "company", useravailable.EmpEmail, "Admin"));
 
       }
       return Ok("failure");
