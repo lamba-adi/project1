@@ -40,6 +40,8 @@ export class DataFormComponent implements OnInit {
   
   approveddatalength:number=0;
 
+  isopening :boolean= false;
+
   ngOnInit(): void {
     console.log(this.user)
     this.getsingleuserdata()
@@ -49,6 +51,7 @@ export class DataFormComponent implements OnInit {
     if(files.length === 0){
       return;
     }
+    this.isopening=true;
     let fileUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file',fileUpload,fileUpload.name);
@@ -76,6 +79,8 @@ export class DataFormComponent implements OnInit {
             // timer : 1200
           })
           this.onUploadFinished.emit(event.body);
+          this.isopening=false;
+          this.getsingleuserdata();
           console.log(event);
           Swal.fire({
             // title: 'Error!',
@@ -148,7 +153,7 @@ export class DataFormComponent implements OnInit {
     ]).subscribe(res =>{
       if(res == "Success") {
         // this.displayMsg = "Account Created Successfully!";
-
+        
         console.log(res);
         // console.log(res)
 
@@ -156,6 +161,7 @@ export class DataFormComponent implements OnInit {
       }
     })
     this.HousingForm.reset()
+    this.getsingleuserdata()
 
   }
 
