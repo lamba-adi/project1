@@ -22,7 +22,7 @@
                         Cost of House
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Rent/Tenure
+                        Rent/Tenure<span style="font-size:10px">(months)</span>
                     </th>
                     <th scope="col" class="py-3 px-6">
                         Action
@@ -47,10 +47,10 @@
                         {{item.typeOfHouse}}
                     </td>
                     <td class="py-4 px-6">
-                        {{item.costOfHouse}}
+                      &#8377;{{item.costOfHouse}} Lakh
                     </td>
                     <td class="py-4 px-6">
-                        ${{item.rent}}/{{item.tenure}}
+                      &#8377;{{item.rent}}&nbsp;/&nbsp;{{item.tenure}}
                     </td>
                     <td class="py-4 px-6">
                         <button class="bg-green-500 hover:bg-green-300 text-gray-800 font-semibold py-2 px-2 border border-gray-400 rounded shadow" (click)="approveUserData(item.entryID)">Approve</button> &nbsp;

@@ -380,11 +380,11 @@ namespace HousingApp.Controllers
 
       compareData.Add(costOfHouse.ToString());
 
-      var rent = (from db in _Uploadcontext.Housing_Approved where db.Country == country where db.City == city select db.Rent).Average();
+      var rent = (from db in _Uploadcontext.Housing_Approved where db.Country == country2 where db.City == city2 select db.Rent).Average();
 
       compareData.Add(rent.ToString());
 
-      var tenure = (from db in _Uploadcontext.Housing_Approved where db.Country == country where db.City == city select db.Tenure).Average();
+      var tenure = (from db in _Uploadcontext.Housing_Approved where db.Country == country2 where db.City == city2 select db.Tenure).Average();
 
       compareData.Add(tenure.ToString());
 
