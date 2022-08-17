@@ -48,7 +48,7 @@ onSubmitLoginForm() {
           // title: 'Error!',
           text: 'Invalid Credentials',
           icon: 'error',
-          position : 'top-end',
+          position : 'top',
           width : '200',
           showConfirmButton : false,
           timer : 2000
