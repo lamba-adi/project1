@@ -163,7 +163,7 @@ export class DataFormComponent implements OnInit {
   getsingleuserdata(){
     this._uploadService.getSingleEmpApprovalData(this.user.id).subscribe(response =>{
       this.approvedata=response;
-      this.approveddatalength=Object.keys(this.approvedata).length;
+      this.approvedatalength=Object.keys(this.approvedata).length;
       
     });
     
